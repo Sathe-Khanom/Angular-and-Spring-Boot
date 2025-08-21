@@ -1,0 +1,10 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+  <li class="nav-item" *ngFor="let item of menuItems">
+    <a class="nav-link" [routerLink]="item.route">
+      <i class="{{ item.icon }}"></i>
+      <span>{{ item.label }}</span>
+    </a>
+  </li>
+
+</ul>
