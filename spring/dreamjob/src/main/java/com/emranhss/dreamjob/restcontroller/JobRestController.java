@@ -7,6 +7,7 @@ import com.emranhss.dreamjob.entity.JobSeeker;
 import com.emranhss.dreamjob.entity.Language;
 import com.emranhss.dreamjob.entity.User;
 import com.emranhss.dreamjob.repository.IUserRepo;
+import com.emranhss.dreamjob.repository.JobRepository;
 import com.emranhss.dreamjob.service.EmployerService;
 import com.emranhss.dreamjob.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ import java.util.List;
 public class JobRestController {
     @Autowired
    private JobService jobService;
+
+    @Autowired
+    private JobRepository jobRepository;
 
     @PostMapping
     public ResponseEntity<Job> createJob(@RequestBody Job job, Authentication authentication) {
@@ -67,6 +71,13 @@ public class JobRestController {
         return ResponseEntity.ok(job); // 200 with job data
     }
 
+    @GetMapping("filter")
+    public List<Job> filterJobs(
+            @RequestParam(required = false) Long categoryId,
+            @RequestParam(required = false) Long locationId
+    ) {
+        return jobRepository.filterJobs(categoryId, locationId);
+    }
 
 
 

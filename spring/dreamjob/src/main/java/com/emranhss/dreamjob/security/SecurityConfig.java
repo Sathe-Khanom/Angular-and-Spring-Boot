@@ -40,7 +40,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/user/login","/auth/login", "/api/jobseeker/**","/api/education/**","/images/**",
                                 "/api/skill/**","/api/experience/**","/api/hobby/**","/api/extracurricular/**",
                                 "/api/language/**","/api/refference/**","/api/training/**","/images/**", "/api/user/active/**",
-                                "/api/employer/","/api/employer/**","/api/jobs/**", "/api/jobs/").permitAll()
+                                "/api/employer/","/api/employer/**","/api/jobs/**", "/api/jobs/","/api/admin/","/api/admin/**").permitAll()
                         .requestMatchers("/api/user/all","/api/jobseeker/profile","/api/education/add","/api/education/all",
                                 "/api/experience/add","/api/experience/all","/api/extracurricular/add","/api/extracurricular/all",
                                 "/api/hobby/add","/api/hobby/all","/api/language/add","/api/language/all","/api/refference/add",

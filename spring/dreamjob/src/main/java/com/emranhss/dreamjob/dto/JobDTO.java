@@ -8,7 +8,6 @@ public class JobDTO {
     private Long id;
     private String title;
     private String description;
-    private String location;
     private Double salary;
     private String jobType;
     private Date postedDate;
@@ -27,7 +26,6 @@ public class JobDTO {
         this.id = job.getId();
         this.title = job.getTitle();
         this.description = job.getDescription();
-        this.location = job.getLocation();
         this.salary = job.getSalary();
         this.jobType = job.getJobType();
         this.postedDate = job.getPostedDate();
@@ -67,14 +65,6 @@ public class JobDTO {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public Double getSalary() {

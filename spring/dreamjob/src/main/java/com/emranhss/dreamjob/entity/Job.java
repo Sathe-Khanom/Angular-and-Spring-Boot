@@ -19,9 +19,6 @@ public class Job {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(length = 100)
-    private String location;
-
     @Column(nullable = false)
     private Double salary;
 
@@ -34,18 +31,28 @@ public class Job {
     @JoinColumn(name = "employer_id", nullable = false)
     private Employer employer;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
     public Job() {
     }
 
-    public Job(Long id, String title, String description, String location, Double salary, String jobType, Date postedDate, Employer employer) {
+    public Job(Long id, String title, String description, Double salary, String jobType, Date postedDate, Employer employer, Category category, Location location) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.location = location;
         this.salary = salary;
         this.jobType = jobType;
         this.postedDate = postedDate;
         this.employer = employer;
+        this.category = category;
+        this.location = location;
     }
 
     public Long getId() {
@@ -70,14 +77,6 @@ public class Job {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public Double getSalary() {
@@ -110,5 +109,21 @@ public class Job {
 
     public void setEmployer(Employer employer) {
         this.employer = employer;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }

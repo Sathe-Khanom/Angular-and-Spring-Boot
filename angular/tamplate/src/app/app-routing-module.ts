@@ -9,6 +9,7 @@ import { EmployerProfileComponent } from './employer/employer-profile.component/
 import { AddJobComponent } from './jobs/add-job.component/add-job.component';
 import { JobDetailsComponent } from './jobs/job-details.component/job-details.component';
 import { AllJobs } from './jobs/all-jobs/all-jobs';
+import { Dashboard } from './dashboard/dashboard/dashboard';
 
 const routes: Routes = [
   {path: 'allUser' , component:AlluserComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'jobdetails', component: JobDetailsComponent},
   {path: 'alljobs', component: AllJobs},
   { path: 'jobs/:id', component: JobDetailsComponent },
+  {path: 'dash', component: Dashboard}
  
 
 

@@ -8,7 +8,7 @@ import { Navbar } from './layout/navbar/navbar';
 import { Footer } from './layout/footer/footer';
 import { Dashboard } from './dashboard/dashboard/dashboard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { AlluserComponent } from './user/alluser.component/alluser.component';
 import { AddjobseekerComponent } from './jobseekr/addjobseeker.component/addjobseeker.component';
 import { JobSeekerProfileComponent } from './jobseekr/job-seeker-profile-component/job-seeker-profile-component';
@@ -40,7 +40,8 @@ import { AllJobs } from './jobs/all-jobs/all-jobs';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+     HttpClientModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
