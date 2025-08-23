@@ -2,10 +2,17 @@ export interface JobDTO {
   id: number;
   title: string;
   description: string;
-  location: string;
   salary: number;
   jobType: string;
   postedDate: string;
+    category: {
+    id: number;
+    name: string;
+  };
+  location: {
+    id: number;
+    name: string;
+  };
 
   // Employer info
   employerId: number;

@@ -1,6 +1,6 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 import { Job } from '../model/job.model';
 import { Observable } from 'rxjs';
@@ -66,6 +66,14 @@ private baseUrl = environment.apiBaseUrl + '/jobs/';
   getAllJobs(): Observable<JobDTO[]> {
     return this.http.get<JobDTO[]>(this.baseUrl);
   }
+
+searchJobs(categoryId: number | null, locationId: number | null): Observable<JobDTO[]> {
+  const params = new HttpParams()
+    .set('categoryId', categoryId !== null ? categoryId.toString() : '')
+    .set('locationId', locationId !== null ? locationId.toString() : '');
+
+  return this.http.get<JobDTO[]>(`${this.baseUrl}filter`, { params });
+}
 
 
 

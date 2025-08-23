@@ -6,6 +6,7 @@ import com.emranhss.dreamjob.jwt.JwtService;
 import com.emranhss.dreamjob.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -37,10 +38,12 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(req -> req
+                        .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/locations/**").permitAll()
                         .requestMatchers("/api/user/login","/auth/login", "/api/jobseeker/**","/api/education/**","/images/**",
                                 "/api/skill/**","/api/experience/**","/api/hobby/**","/api/extracurricular/**",
-                                "/api/language/**","/api/refference/**","/api/training/**","/images/**", "/api/user/active/**",
-                                "/api/employer/","/api/employer/**","/api/jobs/**", "/api/jobs/","/api/admin/","/api/admin/**").permitAll()
+                                "/api/language/**","/api/refference/**","/api/training/**", "/api/user/active/**",
+                                "/api/employer/","/api/employer/**","/api/jobs/**", "/api/jobs/","/api/admin/","/api/admin/**","/api/categories/","/api/categories/**","/api/locations/","/api/locations/**").permitAll()
                         .requestMatchers("/api/user/all","/api/jobseeker/profile","/api/education/add","/api/education/all",
                                 "/api/experience/add","/api/experience/all","/api/extracurricular/add","/api/extracurricular/all",
                                 "/api/hobby/add","/api/hobby/all","/api/language/add","/api/language/all","/api/refference/add",
