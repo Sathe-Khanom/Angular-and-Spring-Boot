@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit{
 
 jobs: JobDTO[] = []; 
   categories: Category[] = [];
-  locations: Location[] = []; // ✅ updated
+  locations: Location[] = [];
 
   selectedCategoryId: number | null = null;
   selectedLocationId: number | null = null;

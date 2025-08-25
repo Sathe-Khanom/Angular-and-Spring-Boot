@@ -11,6 +11,7 @@ import { JobDetailsComponent } from './jobs/job-details.component/job-details.co
 import { AllJobs } from './jobs/all-jobs/all-jobs';
 import { Dashboard } from './dashboard/dashboard/dashboard';
 import { HomeComponent } from './layout/home/home.component/home.component';
+import { ContactComponent } from './layout/contact/contact.component/contact.component';
 
 const routes: Routes = [
   {path: 'allUser' , component:AlluserComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'alljobs', component: AllJobs},
   { path: 'jobs/:id', component: JobDetailsComponent },
   {path: 'dash', component: Dashboard},
-  {path: '' , component: HomeComponent}
+  {path: '' , component: HomeComponent},
+  {path: 'contact', component: ContactComponent}
  
 
 

@@ -1,0 +1,61 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="row g-0">
+
+          <!-- Left Info -->
+          <div class="col-md-5 text-white d-flex flex-column justify-content-center p-4" 
+               style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 1rem 0 0 1rem;">
+            <h3 class="fw-bold mb-3">Get in Touch</h3>
+            <p><i class="bi bi-geo-alt-fill me-2"></i> 123, Banani, Dhaka</p>
+            <p><i class="bi bi-telephone-fill me-2"></i> +880 123 456 789</p>
+            <p><i class="bi bi-envelope-fill me-2"></i> Dream Job</p>
+          </div>
+
+          <!-- Right Form -->
+          <div class="col-md-7 p-4">
+            <h4 class="fw-bold mb-3" style="color:#4facfe;">Send Us a Message</h4>
+
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label class="form-label">Your Name</label>
+                <input type="text" class="form-control rounded-pill" formControlName="name" placeholder="Enter your name">
+                <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="text-danger small">
+                  Name must be at least 3 characters.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Your Email</label>
+                <input type="email" class="form-control rounded-pill" formControlName="email" placeholder="Enter your email">
+                <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="text-danger small">
+                  Enter a valid email address.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control rounded-3" formControlName="message" rows="4" placeholder="Write your message"></textarea>
+                <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="text-danger small">
+                  Message must be at least 10 characters.
+                </div>
+              </div>
+
+              <button type="submit" class="btn w-100 rounded-pill text-white"
+                      style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                Send Message
+              </button>
+            </form>
+
+            <!-- Messages -->
+            <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
