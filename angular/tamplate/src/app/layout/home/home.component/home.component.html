@@ -1,82 +1,29 @@
-<!-- Hero Section -->
+<!-- Hero Section with Search Filters -->
 <section class="py-5 text-white" style="background: linear-gradient(to right, #1e3c72, #2a5298);">
   <div class="container text-center">
     <h1 class="display-4 fw-bold">Find Your Dream Job Today</h1>
     <p class="lead mb-4">Search from thousands of jobs, updated daily. Start your career journey now.</p>
-    <form class="row g-2 justify-content-center">
-      <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="Job title or keyword">
-      </div>
-      <div class="col-md-3">
-        <input list="locations" name="location" class="form-control" placeholder="Location">
-        <datalist id="locations">
-          <option value="Bagerhat">
-          <option value="Bandarban">
-          <option value="Barguna">
-          <option value="Barisal">
-          <option value="Bhola">      
-          <option value="Bogra">
-          <option value="Brahmanbaria">
-          <option value="Chandpur">
-          <option value="Chapai Nawabganj">
-          <option value="Chattogram">
-          <option value="Chuadanga">
-          <option value="Comilla">
-          <option value="Cox's Bazar">
-          <option value="Dhaka">
-          <option value="Dinajpur">
-          <option value="Faridpur">
-          <option value="Feni">
-          <option value="Gaibandha">
-          <option value="Gazipur">
-          <option value="Gopalganj">
-          <option value="Habiganj">
-          <option value="Jamalpur">
-          <option value="Jashore">
-          <option value="Jhalokathi">
-          <option value="Jhenaidah">
-          <option value="Joypurhat">
-          <option value="Khagrachhari">
-          <option value="Khulna">
-          <option value="Kishoreganj">
-          <option value="Kurigram">
-          <option value="Kushtia">
-          <option value="Lakshmipur">
-          <option value="Lalmonirhat">
-          <option value="Madaripur">
-          <option value="Magura">
-          <option value="Manikganj">
-          <option value="Meherpur">
-          <option value="Moulvibazar">
-          <option value="Munshiganj">
-          <option value="Mymensingh">
-          <option value="Naogaon">
-          <option value="Narail">
-          <option value="Narayanganj">
-          <option value="Narsingdi">
-          <option value="Natore">
-          <option value="Netrokona">
-          <option value="Nilphamari">
-          <option value="Noakhali">
-          <option value="Pabna">
-          <option value="Panchagarh">
-          <option value="Patuakhali">
-          <option value="Pirojpur">
-          <option value="Rajbari">
-          <option value="Rajshahi">
-          <option value="Rangamati">
-          <option value="Rangpur">
-          <option value="Satkhira">
-          <option value="Shariatpur">
-          <option value="Sherpur">
-          <option value="Sirajganj">
-          <option value="Sunamganj">
-          <option value="Sylhet">
-          <option value="Tangail">
-          <option value="Thakurgaon">
-        </datalist>
 
+    <!-- Search Form -->
+    <form class="row g-2 justify-content-center" (ngSubmit)="filterJobs()">
+      <div class="col-md-3">
+        <select class="form-select" [(ngModel)]="selectedCategoryId" name="category">
+          <option [ngValue]="null">All Categories</option>
+          <option *ngFor="let category of categories" [ngValue]="category.id">
+            {{ category.name }}
+          </option>
+        </select>
       </div>
+
+      <div class="col-md-3">
+        <select class="form-select" [(ngModel)]="selectedLocationId" name="location">
+          <option [ngValue]="null">All Locations</option>
+          <option *ngFor="let location of locations" [ngValue]="location.id">
+            {{ location.name }}
+          </option>
+        </select>
+      </div>
+
       <div class="col-md-2">
         <button type="submit" class="btn btn-warning w-100">Search</button>
       </div>
@@ -84,52 +31,23 @@
   </div>
 </section>
 
-<!-- Features Section -->
-<section class="py-5 bg-light text-center">
+<!-- Job Listings -->
+<section class="py-5 bg-light">
   <div class="container">
-    <h2 class="mb-4 fw-bold">Why Choose Dream Job?</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="p-4 bg-white shadow rounded">
-          <i class="fas fa-briefcase fa-2x text-primary mb-3"></i>
-          <h5>Verified Listings</h5>
-          <p>All jobs are verified from trusted companies for genuine opportunities.</p>
+    <h2 class="mb-4">Job Listings</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let job of jobs">
+        <div class="card h-100">
+          <img *ngIf="job.logo" [src]="job.logo" class="card-img-top" alt="{{ job.companyName }} logo">
+          <div class="card-body">
+            <h5 class="card-title">{{ job.title }}</h5>
+            <p class="card-text">{{ job.description | slice: 0:100 }}...</p>
+            <p><strong>Category:</strong> {{ job.category.name }}</p>
+            <p><strong>Location:</strong> {{ job.location.name }}</p>
+            <p><strong>Company:</strong> {{ job.companyName }}</p>
+            <p><strong>Salary:</strong> {{ job.salary }} BDT</p>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 bg-white shadow rounded">
-          <i class="fas fa-users fa-2x text-success mb-3"></i>
-          <h5>Top Companies</h5>
-          <p>Connect with top-tier employers across the country and abroad.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 bg-white shadow rounded">
-          <i class="fas fa-bolt fa-2x text-warning mb-3"></i>
-          <h5>Instant Alerts</h5>
-          <p>Get instant email alerts for your preferred job categories.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Categories Section -->
-<section class="py-5 text-center" style="background: linear-gradient(to right, #00c6ff, #0072ff); color: white;">
-  <div class="container">
-    <h2 class="fw-bold mb-4">Popular Job Categories</h2>
-    <div class="row g-4">
-      <div class="col-md-3">
-        <div class="bg-white text-dark p-3 rounded shadow-sm">IT & Software</div>
-      </div>
-      <div class="col-md-3">
-        <div class="bg-white text-dark p-3 rounded shadow-sm">Marketing</div>
-      </div>
-      <div class="col-md-3">
-        <div class="bg-white text-dark p-3 rounded shadow-sm">Accounting</div>
-      </div>
-      <div class="col-md-3">
-        <div class="bg-white text-dark p-3 rounded shadow-sm">Customer Service</div>
       </div>
     </div>
   </div>
@@ -140,6 +58,6 @@
   <div class="container">
     <h3 class="fw-bold mb-3">Are you a recruiter?</h3>
     <p class="mb-4">Post your job in minutes and reach thousands of job seekers!</p>
-    <a href="addjob" class="btn btn-dark">Post a Job</a>
+    <a routerLink="addjob" class="btn btn-dark">Post a Job</a>
   </div>
 </section>

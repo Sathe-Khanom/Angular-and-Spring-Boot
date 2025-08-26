@@ -47,6 +47,14 @@
 </div>
     </div>
 
+        <div class="mb-3">
+      <label for="postedDate" class="form-label">Post Date</label>
+      <input type="date" id="postedDate" class="form-control" formControlName="postedDate" />
+  <div *ngIf="isSubmitted && jobForm.controls['postedDate'].errors" class="text-danger">
+  postedDate is required.
+</div>
+    </div>
+
     <button type="submit" class="btn btn-primary" >Submit</button>
 
     <!-- Feedback messages -->

@@ -21,9 +21,9 @@ jobForm: FormGroup;
     this.jobForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      location: ['', Validators.required],
       salary: [null, [Validators.required, Validators.min(0)]],
-      jobType: ['', Validators.required]
+      jobType: ['', Validators.required],
+      postedDate: ['', Validators.required]
     });
   }
 

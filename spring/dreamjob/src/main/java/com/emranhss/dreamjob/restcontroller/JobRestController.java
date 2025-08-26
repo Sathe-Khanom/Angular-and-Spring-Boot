@@ -1,19 +1,11 @@
 package com.emranhss.dreamjob.restcontroller;
-
 import com.emranhss.dreamjob.dto.JobDTO;
-import com.emranhss.dreamjob.dto.LanguageDTO;
 import com.emranhss.dreamjob.entity.Job;
-import com.emranhss.dreamjob.entity.JobSeeker;
-import com.emranhss.dreamjob.entity.Language;
-import com.emranhss.dreamjob.entity.User;
-import com.emranhss.dreamjob.repository.IUserRepo;
 import com.emranhss.dreamjob.repository.JobRepository;
-import com.emranhss.dreamjob.service.EmployerService;
 import com.emranhss.dreamjob.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
