@@ -35,6 +35,8 @@ export class AuthService {
             localStorage.setItem('authToken', response.token);
             const decodeToken = this.decodeToken(response.token);
             localStorage.setItem('userRole', decodeToken.role);
+
+            
             this.userRoleSubject.next(decodeToken.role);
           }
           return response;
@@ -71,6 +73,7 @@ export class AuthService {
   getUserRole(): string | null {
 
     if (this.isBrowser()) {
+      console.log("User Role IS "+ localStorage.getItem('userRole') );
       return localStorage.getItem('userRole');
     }
     return null;

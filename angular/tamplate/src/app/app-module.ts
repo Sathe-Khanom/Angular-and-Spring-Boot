@@ -21,6 +21,9 @@ import { AllJobs } from './jobs/all-jobs/all-jobs';
 import { HomeComponent } from './layout/home/home.component/home.component';
 import { ContactComponent } from './layout/contact/contact.component/contact.component';
 
+import { Addlocation } from './location/addlocation/addlocation';
+import { AddCategoryComponent } from './jobs/add-category.component/add-category.component';
+
 @NgModule({
   declarations: [
     App,
@@ -38,7 +41,10 @@ import { ContactComponent } from './layout/contact/contact.component/contact.com
     JobDetailsComponent,
     AllJobs,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+   
+    Addlocation,
+         AddCategoryComponent
   ],
   imports: [
     BrowserModule,

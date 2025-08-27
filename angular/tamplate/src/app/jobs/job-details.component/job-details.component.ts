@@ -38,4 +38,11 @@ export class JobDetailsComponent implements OnInit {
   event.target.src = 'assets/images/default-logo.png'; // placeholder if image fails
 }
 
+
+applyJob(jobId: number) {
+  console.log('Apply clicked for Job ID:', jobId);
+  // Here you can navigate to an apply form or call an API
+  // Example: this.router.navigate(['/apply', jobId]);
+}
+
 }

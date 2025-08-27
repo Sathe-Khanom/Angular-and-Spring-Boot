@@ -21,4 +21,15 @@ public interface JobRepository extends JpaRepository <Job, Long> {
             @Param("locationId") Long locationId
     );
 
+
+
+
+
+    List<Job> findByLocationId(Long locationId);
+    List<Job> findByCategoryId(Long categoryId);
+    List<Job> findByLocationIdAndCategoryId(Long locationId, Long categoryId);
+
+
+
+
 }

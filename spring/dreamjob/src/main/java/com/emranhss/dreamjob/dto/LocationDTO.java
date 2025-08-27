@@ -8,9 +8,11 @@ public class LocationDTO {
     private Long id;
     private String name;
 
-    public LocationDTO(Location location) {
-        this.id = location.getId();
-        this.name = location.getName();
+    public LocationDTO() {}
+
+    public LocationDTO(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Long getId() {

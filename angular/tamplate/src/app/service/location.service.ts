@@ -16,4 +16,20 @@ private apiUrl = environment.apiBaseUrl + '/locations/';
    getAllLocations(): Observable<Location[]> {
     return this.http.get<Location[]>(this.apiUrl);
   }
+ getLocationById(id: number): Observable<Location> {
+    return this.http.get<Location>(`${this.apiUrl}/${id}`);
+  }
+
+  createLocation(location: Location): Observable<Location> {
+    return this.http.post<Location>(this.apiUrl, location);
+  }
+
+  updateLocation(id: number, category: Location): Observable<Location> {
+    return this.http.put<Location>(`${this.apiUrl}${id}`, location);
+  }
+
+  deleteLocation(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}${id}`);
+  }
+
 }

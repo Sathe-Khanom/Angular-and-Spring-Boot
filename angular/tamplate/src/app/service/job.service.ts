@@ -67,18 +67,17 @@ private baseUrl = environment.apiBaseUrl + '/jobs/';
     return this.http.get<JobDTO[]>(this.baseUrl);
   }
 
-searchJobs(categoryId: number | null, locationId: number | null): Observable<JobDTO[]> {
-  const params = new HttpParams()
-    .set('categoryId', categoryId !== null ? categoryId.toString() : '')
-    .set('locationId', locationId !== null ? locationId.toString() : '');
+searchJobs(categoryId?: number | null, locationId?: number | null): Observable<JobDTO[]> {
+  let params: any = {};
 
-  return this.http.get<JobDTO[]>(`${this.baseUrl}filter`, { params });
+  if (locationId) params.locationId = locationId;
+  if (categoryId) params.categoryId = categoryId;
+
+  return this.http.get<JobDTO[]>(`${this.baseUrl}search`, { params });
 }
 
 
 
 
-
-
-
 }
+

@@ -23,6 +23,11 @@
       <p><strong>Website:</strong> <a [href]="job.companyWebsite" target="_blank">{{ job.companyWebsite }}</a></p>
     </div>
   </div>
+
+  <!-- Apply Button -->
+  <div class="text-center mt-3">
+    <button class="btn btn-success btn-lg" (click)="applyJob(job.id)">Apply Now</button>
+  </div>
 </div>
 
 <ng-template #loading>
@@ -30,3 +35,5 @@
     <p>Loading job details...</p>
   </div>
 </ng-template>
+
+

@@ -61,9 +61,10 @@ public class SecurityConfig {
                                 "/api/admin/**",
                                 "/api/categories/",
                                 "/api/categories/**",
-                                "/api/locations/",
                                 "/api/locations/**",
+                                "/api/locations/",
                                 "/api/contact/",
+                                "/api/jobs/search**",
                                 "/api/contact/**").permitAll()
                         .requestMatchers("/api/user/all",
                                 "/api/jobseeker/profile",

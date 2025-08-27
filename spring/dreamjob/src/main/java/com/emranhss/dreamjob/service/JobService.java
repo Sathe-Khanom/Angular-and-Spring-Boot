@@ -2,10 +2,14 @@ package com.emranhss.dreamjob.service;
 
 
 import com.emranhss.dreamjob.dto.JobDTO;
+import com.emranhss.dreamjob.entity.Category;
 import com.emranhss.dreamjob.entity.Employer;
 import com.emranhss.dreamjob.entity.Job;
+import com.emranhss.dreamjob.entity.Location;
+import com.emranhss.dreamjob.repository.CategoryRepository;
 import com.emranhss.dreamjob.repository.EmployerRepository;
 import com.emranhss.dreamjob.repository.JobRepository;
+import com.emranhss.dreamjob.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -19,6 +23,13 @@ public class JobService {
 
     @Autowired
     private JobRepository jobRepository;
+
+
+    @Autowired
+    private LocationRepository locationRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Autowired
     private EmployerRepository employerRepository;
@@ -37,8 +48,16 @@ public class JobService {
 
         job.setEmployer(employer);
 
+       Location location= locationRepository.findById(job.getLocation().getId())
+                .orElseThrow(() -> new UsernameNotFoundException("Location not found"));
+
+        Category category = categoryRepository.findById(job.getCategory().getId())
+                .orElseThrow(() -> new UsernameNotFoundException("Category not found"));
+
         return jobRepository.save(job);
     }
+
+
 
     public void delete(Long id) {
         jobRepository.deleteById(id);
@@ -61,6 +80,24 @@ public class JobService {
             return null; // or throw an exception if you prefer
         }
     }
+
+
+    public List<JobDTO> searchJobs(Long locationId, Long categoryId) {
+        List<Job> jobs;
+
+        if (locationId != null && categoryId != null) {
+            jobs = jobRepository.findByLocationIdAndCategoryId(locationId, categoryId);
+        } else if (locationId != null) {
+            jobs = jobRepository.findByLocationId(locationId);
+        } else if (categoryId != null) {
+            jobs = jobRepository.findByCategoryId(categoryId);
+        } else {
+            jobs = jobRepository.findAll();
+        }
+
+        return jobs.stream().map(JobDTO::new).toList();
+    }
+
 
 
 

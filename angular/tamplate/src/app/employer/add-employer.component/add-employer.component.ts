@@ -63,7 +63,7 @@ export class AddEmployerComponent {
       phone: this.userForm.value.phone,
       companyName: this.employerForm.value.companyName,
       companyAddress: this.employerForm.value.address,
-      website: this.employerForm.value.website,
+      companyWebsite: this.employerForm.value.companyWebsite,
       industryType: this.employerForm.value.industryType
     };
 

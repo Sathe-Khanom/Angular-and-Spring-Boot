@@ -17,6 +17,9 @@ public class Location {
     @OneToMany(mappedBy = "location")
     private List<Job> job;
 
+    public Location() {
+    }
+
     public Location(Long id, String name, List<Job> job) {
         this.id = id;
         this.name = name;

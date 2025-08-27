@@ -54,7 +54,7 @@ public class JobRestController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<JobDTO> getJobById(@PathVariable Long id) {
         JobDTO job = jobService.getJobById(id);
         if (job == null) {
@@ -63,13 +63,15 @@ public class JobRestController {
         return ResponseEntity.ok(job); // 200 with job data
     }
 
-    @GetMapping("filter")
-    public List<Job> filterJobs(
-            @RequestParam(required = false) Long categoryId,
-            @RequestParam(required = false) Long locationId
-    ) {
-        return jobRepository.filterJobs(categoryId, locationId);
+    @GetMapping("search")
+    public List<JobDTO> searchJobs(
+            @RequestParam(required = false) Long locationId,
+            @RequestParam(required = false) Long categoryId) {
+        return jobService.searchJobs(locationId, categoryId);
     }
+
+
+
 
 
 

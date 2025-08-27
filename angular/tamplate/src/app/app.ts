@@ -16,7 +16,7 @@ export class App {
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        const jobsRoutes = event.url.startsWith('/alljobs/') || event.url.startsWith('/jobs/') || event.url.startsWith('/home/');
+        const jobsRoutes = event.url.startsWith('/alljobs/') || event.url.startsWith('/jobs/**') || event.url.startsWith('/home/');
         this.showSidebar = jobsRoutes;
       }
     });

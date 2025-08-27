@@ -10,8 +10,11 @@
       <div class="card h-100 shadow-sm">
         <div class="card-body">
           <h5 class="card-title">{{ job.title }}</h5>
+
           <p class="card-text">
-            <strong>Location:</strong> {{ job.location }}<br>
+            <strong>Location:</strong> {{ job.location}}<br>
+
+
             <strong>Salary:</strong> {{ job.salary | currency }}<br>
             <strong>Type:</strong> {{ job.jobType }}<br>
             <strong>Posted:</strong> {{ job.postedDate | date:'mediumDate' }}<br>

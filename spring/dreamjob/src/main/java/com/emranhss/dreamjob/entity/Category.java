@@ -16,6 +16,9 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Job> jobs = new ArrayList<>();
 
+    public Category() {
+    }
+
     public Category(Long id, String name, List<Job> jobs) {
         this.id = id;
         this.name = name;

@@ -1,21 +1,62 @@
-<div class="employer-profile-container" *ngIf="employer">
-  <h2>Employer Profile</h2>
+<div *ngIf="employer" class="container py-5">
+  <div class="card shadow-lg border-0 rounded-4">
+    
+    <!-- Card Header -->
+    <div class="card-header bg-dark text-white rounded-top-4">
+      <h4 class="mb-0 text-center">
+        <i class="bi bi-building me-2"></i>
+        Employer Profile
+      </h4>
+    </div>
 
-  <!-- Logo -->
-  <div class="logo-container" *ngIf="employer.logo">
-    <img [src]="employer.logo" alt="Company Logo" class="company-logo">
-  </div>
+    <div class="card-body">
+      <div class="row align-items-center">
+        
+        <!-- Company Logo -->
+        <div class="col-md-3 text-center mb-4 mb-md-0">
+          <img [src]="employer.logo" alt="Company Logo" height="150" width="150"
+               class="img-thumbnail shadow-sm rounded-circle border border-3 border-primary mb-3" />
+          <h5 class="fw-bold text-primary">{{ employer.companyName || 'Company Name' }}</h5>
+          <span class="badge bg-info text-dark">{{ employer.industry || 'Industry' }}</span>
+        </div>
 
-  <!-- Contact Info -->
-  <div class="profile-info">
-    <p><strong>Contact Person:</strong> {{ employer.contactPerson }}</p>
-    <p><strong>Email:</strong> {{ employer.email }}</p>
-    <p><strong>Phone:</strong> {{ employer.phone }}</p>
-     <p><strong>Website:</strong> {{ employer.website }}</p>
+        <!-- Contact Info -->
+        <div class="col-md-9">
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <i class="bi bi-person-fill me-2 text-secondary"></i>
+              <strong>Contact Person:</strong>
+              <span class="ms-1 text-dark">{{ employer.contactPerson }}</span>
+            </div>
+            <div class="col-md-6">
+              <i class="bi bi-envelope-fill me-2 text-secondary"></i>
+              <strong>Email:</strong>
+              <span class="ms-1 text-dark">{{ employer.email }}</span>
+            </div>
+            <div class="col-md-6">
+              <i class="bi bi-telephone-fill me-2 text-secondary"></i>
+              <strong>Phone:</strong>
+              <span class="ms-1 text-dark">{{ employer.phone }}</span>
+            </div>
+            <div class="col-md-6">
+              <i class="bi bi-globe me-2 text-secondary"></i>
+              <strong>Website:</strong>
+              <a [href]="employer.website" target="_blank" class="ms-1 link-primary text-decoration-none">
+                {{ employer.website }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- Loading State -->
-<div *ngIf="!employer">
-  <p>Loading profile...</p>
+<div *ngIf="!employer" class="container py-5 text-center">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p class="mt-3 text-muted">Loading employer profile...</p>
 </div>

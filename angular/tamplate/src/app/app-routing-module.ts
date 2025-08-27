@@ -12,6 +12,10 @@ import { AllJobs } from './jobs/all-jobs/all-jobs';
 import { Dashboard } from './dashboard/dashboard/dashboard';
 import { HomeComponent } from './layout/home/home.component/home.component';
 import { ContactComponent } from './layout/contact/contact.component/contact.component';
+import { Addlocation } from './location/addlocation/addlocation';
+import { AddCategoryComponent } from './jobs/add-category.component/add-category.component';
+import { RoleGuard } from './auth/role-guard';
+import { Role } from './model/roles';
 
 const routes: Routes = [
   {path: 'allUser' , component:AlluserComponent},
@@ -20,13 +24,19 @@ const routes: Routes = [
   {path: 'login' , component:LoginComponent},
   {path: 'addemp', component:AddEmployerComponent},
   {path: 'emprofile', component: EmployerProfileComponent},
-  {path: 'addjob', component: AddJobComponent},
+  // {path: 'addjob', component: AddJobComponent,  canActivate: [RoleGuard], data: { roles: [Role.EMPLOYER] } },
+  {path: 'addjob', component: AddJobComponent,  },
   {path: 'jobdetails', component: JobDetailsComponent},
   {path: 'alljobs', component: AllJobs},
   { path: 'jobs/:id', component: JobDetailsComponent },
   {path: 'dash', component: Dashboard},
   {path: '' , component: HomeComponent},
-  {path: 'contact', component: ContactComponent}
+  {path: 'contact', component: ContactComponent},
+  {path: 'location', component: Addlocation},
+    {path: 'category', component: AddCategoryComponent},
+
+  
+  { path: '**', redirectTo: '' } // fallback
  
 
 
