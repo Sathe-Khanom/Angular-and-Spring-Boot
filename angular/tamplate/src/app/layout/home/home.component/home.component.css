@@ -1,9 +1,35 @@
-.card-title {
-  font-size: 1.2rem;
-  font-weight: 600;
+/* 🔶 Job Listings Section - Light Yellow Background */
+section.py-5.bg-light {
+  background-color: #fff9e6 !important; /* soft light yellow */
 }
 
-.card-text {
-  font-size: 0.95rem;
-  line-height: 1.5;
+
+/* Card background hobe lavender blue */
+section.bg-light .card {
+  background-color: #8889C9 !important;
+  color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+section.bg-light .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* Button style */
+section.bg-light .btn-primary {
+  background-color: #333b8d;
+  border: none;
+  color: white;
+}
+
+section.bg-light .btn-primary:hover {
+  background-color: #1f256b;
+}
+
+
+
+
+

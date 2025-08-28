@@ -41,6 +41,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/locations/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/jobs/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/applications/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/applications/").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/jobs/").hasRole("EMPLOYER")
                         .requestMatchers("/api/user/login",
                                 "/auth/login",
@@ -65,7 +67,9 @@ public class SecurityConfig {
                                 "/api/locations/",
                                 "/api/contact/",
                                 "/api/jobs/search**",
-                                "/api/contact/**").permitAll()
+                                "/api/contact/**",
+                                "/api/applications/**",
+                        "/api/applications/").permitAll()
                         .requestMatchers("/api/user/all",
                                 "/api/jobseeker/profile",
                                 "/api/education/add",
@@ -120,7 +124,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of("http://localhost:4200", "http://127.0.0.1:4200"));
         configuration.setAllowedMethods(List.of("GET", "POST", "DELETE", "PUT", "OPTIONS"));
-        configuration.setAllowedHeaders(List.of("Authorization", "Cache_Control", "Content-type"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

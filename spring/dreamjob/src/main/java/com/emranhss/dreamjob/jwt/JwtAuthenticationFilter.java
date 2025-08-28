@@ -143,7 +143,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
         System.out.println("Incoming Request Path: " + path);  // Add this log
         boolean skip = path.equals("/api/user/login") || path.startsWith("/images/") || path.startsWith("/api/user/active/") ||path.startsWith("/api/categories/") ||
-                path.startsWith("/api/locations/") || path.startsWith("/auth/login");
+                path.startsWith("/api/locations/") || path.startsWith("/auth/login")
+                || path.startsWith("/api/applications/");;
         System.out.println("Should Skip Filter: " + skip);  // Add this log
         return skip;
     }
