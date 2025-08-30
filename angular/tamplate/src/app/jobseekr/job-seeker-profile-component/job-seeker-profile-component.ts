@@ -17,6 +17,7 @@ import { TrainingService } from '../../service/training.service';
 import { RefferenceService } from '../../service/refference.service';
 import { LanguageService } from '../../service/language.service';
 import { HobbyService } from '../../service/hobby.service';
+import { AuthService } from '../../service/auth-service';
 
 @Component({
   selector: 'app-job-seeker-profile-component',
@@ -103,6 +104,7 @@ export class JobSeekerProfileComponent {
     private refferenceService: RefferenceService,
     private languageService: LanguageService,
     private hobbyService: HobbyService,
+    private authService: AuthService,
   ) { }
 
    ngOnInit(): void {
@@ -425,6 +427,11 @@ export class JobSeekerProfileComponent {
       this.cdr.markForCheck();
     });
   }
+
+   onLogout(): void {
+    this.authService.logout();
+  }
+
 
 
 }

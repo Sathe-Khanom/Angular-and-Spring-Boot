@@ -23,6 +23,8 @@ import { ContactComponent } from './layout/contact/contact.component/contact.com
 
 import { Addlocation } from './location/addlocation/addlocation';
 import { AddCategoryComponent } from './jobs/add-category.component/add-category.component';
+import { MyjobsComponent } from './myjob/myjobs.component/myjobs.component';
+import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-jobs.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { AddCategoryComponent } from './jobs/add-category.component/add-category
     ContactComponent,
    
     Addlocation,
-         AddCategoryComponent
+         AddCategoryComponent,
+         MyjobsComponent,
+         AppliedJobsComponent
   ],
   imports: [
     BrowserModule,

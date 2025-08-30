@@ -1,6 +1,8 @@
 package com.emranhss.dreamjob.repository;
 
+import com.emranhss.dreamjob.entity.Employer;
 import com.emranhss.dreamjob.entity.Job;
+import com.emranhss.dreamjob.entity.JobSeeker;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,7 +13,15 @@ import java.util.Optional;
 
 @Repository
 public interface JobRepository extends JpaRepository <Job, Long> {
+
+
+
     List<Job> findByEmployerId(long employerId);
+
+    // Find all jobs by Employer
+    List<Job> findByEmployer(Employer employer);
+
+    List<Job> findByJobSeeker(JobSeeker jobSeeker);
 
     @Query("SELECT j FROM Job j WHERE " +
             "(:categoryId IS NULL OR j.category.id = :categoryId) AND " +

@@ -29,11 +29,25 @@ public class JobRestController {
     }
 
     // Get all jobs posted by an employer
-    @GetMapping("employer/{employerId}")
-    public ResponseEntity<List<JobDTO>> getJobsByEmployer(@PathVariable Long employerId) {
-        List<JobDTO> jobs = jobService.getJobsByEmployerId(employerId);
-        return ResponseEntity.ok(jobs);
+
+    @GetMapping("my-jobs")
+    public List<JobDTO> getJobsForLoggedInEmployer(Authentication authentication) {
+
+        // Get username (email) from Authentication
+        String email = authentication.getName();
+
+        return jobService.getJobsByEmployerEmail(email);
     }
+
+    @GetMapping("applied-jobs")
+    public List<JobDTO> getJobsForLoggedInJobSeeker(Authentication authentication) {
+
+        // Get username (email) from Authentication
+        String email = authentication.getName();
+
+        return jobService.getJobsByJobSeekerEmail(email);
+    }
+
 
     // Delete a job by ID
     @DeleteMapping("/{jobId}")

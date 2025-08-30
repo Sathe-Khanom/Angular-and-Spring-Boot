@@ -16,6 +16,7 @@ import { Addlocation } from './location/addlocation/addlocation';
 import { AddCategoryComponent } from './jobs/add-category.component/add-category.component';
 import { RoleGuard } from './auth/role-guard';
 import { Role } from './model/roles';
+import { MyjobsComponent } from './myjob/myjobs.component/myjobs.component';
 
 const routes: Routes = [
   {path: 'allUser' , component:AlluserComponent},
@@ -34,6 +35,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'location', component: Addlocation},
     {path: 'category', component: AddCategoryComponent},
+    {path: 'myjob', component: MyjobsComponent},
+
 
   
   { path: '**', redirectTo: '' } // fallback

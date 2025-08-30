@@ -1,27 +1,52 @@
 package com.emranhss.dreamjob.restcontroller;
 
+import com.emranhss.dreamjob.dto.ApplyDTO;
 import com.emranhss.dreamjob.entity.Apply;
+import com.emranhss.dreamjob.entity.JobSeeker;
+import com.emranhss.dreamjob.repository.JobSeekerRepository;
 import com.emranhss.dreamjob.service.ApplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/applications/")
+@RequestMapping("/api/applications")
 public class ApplyRestController {
 
  @Autowired
  private ApplyService applyService;
 
+ @Autowired
+ private JobSeekerRepository jobSeekerRepository;
+
     // ✅ Create a new application
     @PostMapping
-    public ResponseEntity<Apply> createApplication(@RequestBody Apply apply) {
-        Apply createdApply = applyService.createApplication(apply);
-        return ResponseEntity.ok(createdApply);
+    public ResponseEntity<ApplyDTO> createApplication(@RequestBody Apply apply, Authentication authentication) {
+
+        String JobSeekerEmail = authentication.getName();
+
+        JobSeeker jobSeeker = jobSeekerRepository.findByUserEmail(JobSeekerEmail)
+                .orElseThrow(() -> new RuntimeException("Job Seeker Not Found"));
+
+
+
+        Apply createdApply = applyService.createApplication(apply, jobSeeker);
+
+        // Convert to DTO before returning
+        ApplyDTO dto = applyService.mapToDTO(createdApply);
+
+
+        return ResponseEntity.ok(dto);
     }
+
+
+
+
+
 
     // ✅ Get all applications
     @GetMapping

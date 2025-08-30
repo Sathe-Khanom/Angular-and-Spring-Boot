@@ -2,14 +2,8 @@ package com.emranhss.dreamjob.service;
 
 
 import com.emranhss.dreamjob.dto.JobDTO;
-import com.emranhss.dreamjob.entity.Category;
-import com.emranhss.dreamjob.entity.Employer;
-import com.emranhss.dreamjob.entity.Job;
-import com.emranhss.dreamjob.entity.Location;
-import com.emranhss.dreamjob.repository.CategoryRepository;
-import com.emranhss.dreamjob.repository.EmployerRepository;
-import com.emranhss.dreamjob.repository.JobRepository;
-import com.emranhss.dreamjob.repository.LocationRepository;
+import com.emranhss.dreamjob.entity.*;
+import com.emranhss.dreamjob.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -34,11 +28,30 @@ public class JobService {
     @Autowired
     private EmployerRepository employerRepository;
 
-    public List<JobDTO> getJobsByEmployerId(long employerId) {
-       List <Job> jobs = jobRepository.findByEmployerId(employerId);
-       return jobs.stream()
-               .map(JobDTO:: new)
-               .collect(Collectors.toList());
+    @Autowired
+    private JobSeekerRepository jobSeekerRepository;
+
+    public List<JobDTO> getJobsByEmployerEmail(String email) {
+        Employer employer = employerRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Employer not found"));
+
+        List<Job> jobs = jobRepository.findByEmployer(employer);
+
+        return jobs.stream()
+                .map(JobDTO::new)
+                .collect(Collectors.toList());
+    }
+
+
+    public List<JobDTO> getJobsByJobSeekerEmail(String email) {
+        JobSeeker jobSeeker = jobSeekerRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("JobSeeker not found"));
+
+        List<Job> jobs = jobRepository.findByJobSeeker(jobSeeker);
+
+        return jobs.stream()
+                .map(JobDTO::new)
+                .collect(Collectors.toList());
     }
 
 

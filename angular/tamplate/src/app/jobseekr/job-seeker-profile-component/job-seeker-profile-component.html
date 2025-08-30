@@ -1,59 +1,75 @@
+<div class="container py-5">
+  <div class="row">
 
-
-<div *ngIf="jobSeeker" class="container py-5">
-  <div class="card p-4">
-    <div class="row align-items-center">
-      <div class="col-md-3 text-center">
-        <img [src]="'http://localhost:8085/images/jobSeeker/'+jobSeeker.photo" alt="Profile Image" height="150"
-          width="150" class="profile-img mb-3">
-        <h4 class="mb-0">{{ jobSeeker.name }}</h4>
-        <p class="text-muted">{{ jobSeeker.gender }}</p>
-      </div>
-      <div class="col-md-9">
-        <div class="row mb-2">
-          <div class="col-md-6"><strong>Email:</strong> {{ jobSeeker.email }}</div>
-          <div class="col-md-6"><strong>Phone:</strong> {{ jobSeeker.phone }}</div>
-          <div class="col-md-6"><strong>Address:</strong> {{ jobSeeker.address }}</div>
-          <div class="col-md-6"><strong>Date of Birth:</strong>{{jobSeeker.dateOfBirth}}</div>
+    <!-- Sidebar -->
+    <div class="col-md-3 mb-4">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body">
+          <h5 class="fw-bold mb-3">Menu</h5>
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-primary" [routerLink]="['/appliedjob']">
+             Applied Jobs
+            </button>
+            <button class="btn btn-outline-danger" (click)="onLogout()">
+              Logout
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Add Education
-    </button>
-
-      <!-- Add Experience Button -->
-    <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#experienceModal">
-      Add Experience
-    </button>
-
-    <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#extracurricularModal">
-      Add Extracurricular
-    </button>
-    <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#skillModal">
-      Add Skill
-    </button>
-    <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#trainingModal">
-      Add Training
-    </button>
-    <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#referenceModal">
-      Add Refference
-    </button>
-
-    <button class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#languageModal">
-      Add Language
-    </button>
-
-    <button class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#hobbyModal">
-      Add Hobby
-    </button>
-
-
+<div *ngIf="jobSeeker" class="container py-5 ">
+  <div class="card p-4 card card-soft-mint " style="background: #f4f9fd; border-radius: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+  <div class="row align-items-center">
+    <div class="col-md-3 text-center">
+      <img [src]="'http://localhost:8085/images/jobSeeker/'+jobSeeker.photo" alt="Profile Image" height="150"
+        width="150" class="profile-img mb-3">
+      <h4 class="mb-0">{{ jobSeeker.name }}</h4>
+      <p class="text-muted">{{ jobSeeker.gender }}</p>
+    </div>
+    <div class="col-md-9">
+      <div class="row mb-2">
+        <div class="col-md-6"><strong>Email:</strong> {{ jobSeeker.email }}</div>
+        <div class="col-md-6"><strong>Phone:</strong> {{ jobSeeker.phone }}</div>
+        <div class="col-md-6"><strong>Address:</strong> {{ jobSeeker.address }}</div>
+        <div class="col-md-6"><strong>Date of Birth:</strong>{{ jobSeeker.dateOfBirth }}</div>
+      </div>
+    </div>
   </div>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Education
+  </button>
+
+  <!-- Add Experience Button -->
+  <button type="button" class="btn btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#experienceModal">
+    Add Experience
+  </button>
+
+  <button type="button" class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#extracurricularModal">
+    Add Extracurricular
+  </button>
+  <button type="button" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#skillModal">
+    Add Skill
+  </button>
+  <button type="button" class="btn btn-info mt-3" data-bs-toggle="modal" data-bs-target="#trainingModal">
+    Add Training
+  </button>
+  <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#referenceModal">
+    Add Reference
+  </button>
+
+  <button class="btn btn-secondary mt-3" data-bs-toggle="modal" data-bs-target="#languageModal">
+    Add Language
+  </button>
+
+  <button class="btn btn-outline-dark mt-3" data-bs-toggle="modal" data-bs-target="#hobbyModal">
+    Add Hobby
+  </button>
+</div>
+
+
 
 </div>
 

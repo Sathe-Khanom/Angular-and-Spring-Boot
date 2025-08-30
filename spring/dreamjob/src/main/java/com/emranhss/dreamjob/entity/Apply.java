@@ -10,16 +10,16 @@ public class Apply {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "jobs_id", nullable = false)
     private Job job;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "job_seeker_id", nullable = false)
     private JobSeeker jobSeeker;
 
-    @ManyToOne
-    @JoinColumn(name ="employer_id", nullable = false )
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name ="employer_id", nullable = false  )
     private Employer employer;
 
     public Apply() {

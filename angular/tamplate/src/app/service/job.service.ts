@@ -10,14 +10,14 @@ import { JobDTO } from '../model/JobDTO';
   providedIn: 'root'
 })
 export class JobService {
-private baseUrl = environment.apiBaseUrl + '/jobs/';
+  private baseUrl = environment.apiBaseUrl + '/jobs/';
 
   constructor(
     private http: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
-//  Get auth headers with token if available
+  //  Get auth headers with token if available
   private getAuthHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
 
@@ -62,19 +62,35 @@ private baseUrl = environment.apiBaseUrl + '/jobs/';
   }
 
 
-    // GET all jobs
+  // GET all jobs
   getAllJobs(): Observable<JobDTO[]> {
     return this.http.get<JobDTO[]>(this.baseUrl);
   }
 
-searchJobs(categoryId?: number | null, locationId?: number | null): Observable<JobDTO[]> {
-  let params: any = {};
+  searchJobs(categoryId?: number | null, locationId?: number | null): Observable<JobDTO[]> {
+    let params: any = {};
 
-  if (locationId) params.locationId = locationId;
-  if (categoryId) params.categoryId = categoryId;
+    if (locationId) params.locationId = locationId;
+    if (categoryId) params.categoryId = categoryId;
 
-  return this.http.get<JobDTO[]>(`${this.baseUrl}search`, { params });
-}
+    return this.http.get<JobDTO[]>(`${this.baseUrl}search`, { params });
+  }
+
+
+  getMyJobs(): Observable<JobDTO[]> {
+    let headers = new HttpHeaders();
+
+    if (isPlatformBrowser(this.platformId)) {
+      const token = localStorage.getItem('authToken'); // JWT token
+      if (token) {
+        headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`
+        });
+      }
+    }
+
+    return this.http.get<JobDTO[]>(`${this.baseUrl}my-jobs`, { headers });
+  }
 
 
 

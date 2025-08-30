@@ -88,11 +88,13 @@ public class SecurityConfig {
                                 "/api/skill/all",
                                 "/api/training/add",
                                 "/api/training/all",
+                                "/api/applications/apply",
+                                "/api/jobs/applied-jobs",
                                 "/images/**").hasRole("JOBSEEKER")
                         .requestMatchers("/api/employer/profile",
                                 "/images/**",
-                                "/api/jobs/**",
-                                "/api/jobs/"
+                                "/api/jobs/**"
+
                                 ).hasRole("EMPLOYER")
                         .anyRequest().authenticated()
                 )

@@ -16,4 +16,7 @@ public interface EmployerRepository extends JpaRepository<Employer, Long> {
     Optional<Employer> findByUserEmail(@Param("email") String email);
 
 
+    Optional<Employer> findByEmail(String email);
+
+
 }
