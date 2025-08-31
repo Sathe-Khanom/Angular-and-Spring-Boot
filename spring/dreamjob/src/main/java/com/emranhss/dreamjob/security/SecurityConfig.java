@@ -89,7 +89,6 @@ public class SecurityConfig {
                                 "/api/training/add",
                                 "/api/training/all",
                                 "/api/applications/apply",
-                                "/api/jobs/applied-jobs",
                                 "/images/**").hasRole("JOBSEEKER")
                         .requestMatchers("/api/employer/profile",
                                 "/images/**",

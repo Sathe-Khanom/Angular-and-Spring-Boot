@@ -31,9 +31,7 @@ public class Job {
     @JoinColumn(name = "employer_id", nullable = false)
     private Employer employer;
 
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "job_seeker_id", nullable = false) // যদি আপনার database schema তে এমন কিছু থাকে
-    private JobSeeker jobSeeker;
+
 
     @ManyToOne
     @JoinColumn(name = "category_id")

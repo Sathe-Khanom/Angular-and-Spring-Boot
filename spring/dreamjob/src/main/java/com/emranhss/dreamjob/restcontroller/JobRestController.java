@@ -39,14 +39,6 @@ public class JobRestController {
         return jobService.getJobsByEmployerEmail(email);
     }
 
-    @GetMapping("applied-jobs")
-    public List<JobDTO> getJobsForLoggedInJobSeeker(Authentication authentication) {
-
-        // Get username (email) from Authentication
-        String email = authentication.getName();
-
-        return jobService.getJobsByJobSeekerEmail(email);
-    }
 
 
     // Delete a job by ID

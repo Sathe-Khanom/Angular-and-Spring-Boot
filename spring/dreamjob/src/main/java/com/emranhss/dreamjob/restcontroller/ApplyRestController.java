@@ -81,9 +81,6 @@ public class ApplyRestController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("test")
-    public String test() {
-        return "Apply API is working!";
-    }
+
 
 }

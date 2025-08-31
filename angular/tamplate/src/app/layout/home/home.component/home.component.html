@@ -61,10 +61,40 @@
     </div>
   </section> -->
 
+    <!-- Features Section -->
+  <section class="py-5 bg-danger bg-opacity-10 text-center">
+    <div class="container">
+      <h2 class="mb-4 fw-bold">Why Choose Dream Job?</h2>
+      <div class="row g-4">
+        <div class="col-md-4 ">
+          <div class="p-4 bg-info bg-opacity-25 shadow rounded">
+            <i class="fas fa-briefcase fa-2x text-primary mb-3"></i>
+            <h5>Verified Listings</h5>
+            <p>All jobs are verified from trusted companies for genuine opportunities.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 bg-primary bg-opacity-25 shadow rounded">
+            <i class="fas fa-users fa-2x text-success mb-3"></i>
+            <h5>Top Companies</h5>
+            <p>Connect with top-tier employers across the country and abroad.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 bg-success bg-opacity-25 shadow rounded">
+            <i class="fas fa-bolt fa-2x text-warning mb-3"></i>
+            <h5>Instant Alerts</h5>
+            <p>Get instant email alerts for your preferred job categories.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 <!-- Job Listings -->
-<section class="py-5 bg-light">
+<section class="py-5 bg-dark bg-opacity-10">
   <div class="container mt-4">
-    <h2 class="text-center mb-4">Job List</h2>
+    <h2 class="text-center mb-4">Here are your jobs..</h2>
 
     <div *ngIf="jobs.length === 0" class="alert alert-info text-center">
       No jobs available.
@@ -114,32 +144,3 @@
 </section>
 
 
-  <!-- Features Section -->
-  <section class="py-5 bg-light text-center">
-    <div class="container">
-      <h2 class="mb-4 fw-bold">Why Choose Dream Job?</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="p-4 bg-white shadow rounded">
-            <i class="fas fa-briefcase fa-2x text-primary mb-3"></i>
-            <h5>Verified Listings</h5>
-            <p>All jobs are verified from trusted companies for genuine opportunities.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 bg-white shadow rounded">
-            <i class="fas fa-users fa-2x text-success mb-3"></i>
-            <h5>Top Companies</h5>
-            <p>Connect with top-tier employers across the country and abroad.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 bg-white shadow rounded">
-            <i class="fas fa-bolt fa-2x text-warning mb-3"></i>
-            <h5>Instant Alerts</h5>
-            <p>Get instant email alerts for your preferred job categories.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>

@@ -43,16 +43,7 @@ public class JobService {
     }
 
 
-    public List<JobDTO> getJobsByJobSeekerEmail(String email) {
-        JobSeeker jobSeeker = jobSeekerRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("JobSeeker not found"));
 
-        List<Job> jobs = jobRepository.findByJobSeeker(jobSeeker);
-
-        return jobs.stream()
-                .map(JobDTO::new)
-                .collect(Collectors.toList());
-    }
 
 
     public Job saveJob(Job job, String email) {

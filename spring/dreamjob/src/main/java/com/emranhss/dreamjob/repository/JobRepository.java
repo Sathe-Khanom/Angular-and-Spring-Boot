@@ -21,7 +21,7 @@ public interface JobRepository extends JpaRepository <Job, Long> {
     // Find all jobs by Employer
     List<Job> findByEmployer(Employer employer);
 
-    List<Job> findByJobSeeker(JobSeeker jobSeeker);
+
 
     @Query("SELECT j FROM Job j WHERE " +
             "(:categoryId IS NULL OR j.category.id = :categoryId) AND " +
