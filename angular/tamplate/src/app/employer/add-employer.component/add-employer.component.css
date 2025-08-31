@@ -1,0 +1,92 @@
+/* পুরো পেজের background */
+.container {
+  background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  padding: 40px;
+  border-radius: 15px;
+  min-height: 100vh; /* সম্পূর্ণ viewport কভার করার জন্য */
+}
+
+/* Card Common Style */
+.card {
+  border-radius: 15px;
+  margin-bottom: 25px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+/* Card Header */
+.card-header {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 12px;
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* User Info Card */
+.user-card {
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  border: 2px solid #6a11cb;
+}
+.user-card .card-header {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+/* Employer Info Card */
+.employer-card {
+  background: linear-gradient(135deg, #fddb92, #d1fdff);
+  border: 2px solid #00c853;
+}
+.employer-card .card-header {
+  background: linear-gradient(135deg, #00c853, #b2ff59);
+}
+
+/* Input fields */
+.form-control {
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  padding: 10px 15px;
+  background-color: rgba(255,255,255,0.9);
+  transition: 0.3s;
+}
+.form-control:focus {
+  border-color: #7b2ff7;
+  box-shadow: 0 0 10px rgba(123,47,247,0.5);
+  background-color: #fff;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}

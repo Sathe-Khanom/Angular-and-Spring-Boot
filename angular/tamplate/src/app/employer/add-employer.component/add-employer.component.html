@@ -6,8 +6,8 @@
   <!-- User Info Section -->
   <form [formGroup]="userForm">
     <div class="card mb-4">
-      <div class="card-header bg-primary text-white">User Information</div>
-      <div class="card-body row g-3">
+      <div class="card-header bg-dark text-white">User Information</div>
+      <div class="card-body row g-3 bg-danger " style="--bs-bg-opacity: .25;">
         <div class="col-md-6">
           <label class="form-label">Contact Person</label>
           <input type="text" class="form-control" formControlName="name">
@@ -31,8 +31,8 @@
   <!-- Employer Info Section -->
   <form [formGroup]="employerForm" (ngSubmit)="onSubmit()">
     <div class="card mb-4">
-      <div class="card-header bg-success text-white">Employer Information</div>
-      <div class="card-body row g-3">
+      <div class="card-header bg-dark text-white">Employer Information</div>
+      <div class="card-body row g-3 bg-danger " style="--bs-bg-opacity: .25;">
         <div class="col-md-6">
           <label class="form-label">Company Name</label>
           <input type="text" class="form-control" formControlName="companyName">
