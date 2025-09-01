@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ApplyService {
@@ -90,6 +91,25 @@ public class ApplyService {
                 apply.getJobSeeker().getId(),
                 apply.getJobSeeker().getName()
         );
+    }
+
+
+
+
+
+    public List<ApplyDTO> getAppliesByJobSeeker(Long jobSeekerId) {
+        return applyRepository.findByJobSeeker_Id(jobSeekerId)
+                .stream()
+                .map(apply -> new ApplyDTO(
+                        apply.getId(),
+                        apply.getJob().getId(),
+                        apply.getJob().getTitle(),
+                        apply.getEmployer().getId(),
+                        apply.getEmployer().getCompanyName(),
+                        apply.getJobSeeker().getId(),
+                        apply.getJobSeeker().getName()
+                ))
+                .collect(Collectors.toList());
     }
 
 }

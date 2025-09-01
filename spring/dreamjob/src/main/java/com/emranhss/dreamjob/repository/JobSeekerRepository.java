@@ -1,6 +1,7 @@
 package com.emranhss.dreamjob.repository;
 
 import com.emranhss.dreamjob.entity.JobSeeker;
+import com.emranhss.dreamjob.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,6 +23,9 @@ public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
 
     // Find JobSeeker by email
     Optional<JobSeeker> findByEmail(String email);
+
+
+    Optional<JobSeeker> findByUser(User user);
 
 
 }

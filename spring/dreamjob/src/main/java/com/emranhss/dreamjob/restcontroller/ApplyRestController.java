@@ -5,6 +5,7 @@ import com.emranhss.dreamjob.entity.Apply;
 import com.emranhss.dreamjob.entity.JobSeeker;
 import com.emranhss.dreamjob.repository.JobSeekerRepository;
 import com.emranhss.dreamjob.service.ApplyService;
+import com.emranhss.dreamjob.service.JobSeekerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -19,6 +20,9 @@ public class ApplyRestController {
 
  @Autowired
  private ApplyService applyService;
+
+ @Autowired
+ private JobSeekerService jobSeekerService;
 
  @Autowired
  private JobSeekerRepository jobSeekerRepository;
@@ -80,6 +84,27 @@ public class ApplyRestController {
         applyService.deleteApplication(id);
         return ResponseEntity.noContent().build();
     }
+
+
+
+
+    @GetMapping("/my")
+    public List<ApplyDTO> getMyApplies(Authentication authentication) {
+        if (authentication == null) {
+            throw new RuntimeException("User not authenticated");
+        }
+
+        String username = authentication.getName(); // "rahim@gmail.com"
+        System.out.println("Logged in as: " + username);
+
+        JobSeeker jobSeeker = jobSeekerRepository.findByEmail(username)
+                .orElseThrow(() -> new RuntimeException("JobSeeker not found for user " + username));
+
+        return applyService.getAppliesByJobSeeker(jobSeeker.getId());
+    }
+
+
+
 
 
 

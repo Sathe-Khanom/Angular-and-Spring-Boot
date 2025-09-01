@@ -57,7 +57,7 @@ export class JobDetailsComponent implements OnInit {
       },
       error: (err) => {
         console.error('Application failed:', err);
-        alert('Failed to apply. Please try again.');
+        alert('Failed to apply. Please login first.');
       }
     });
   }
