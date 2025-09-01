@@ -1,22 +1,4 @@
-<div class="container py-5">
-  <div class="row">
 
-    <!-- Sidebar -->
-    <div class="col-md-3 mb-4">
-      <div class="card shadow-lg border-0 rounded-4">
-        <div class="card-body">
-          <h5 class="fw-bold mb-3">Menu</h5>
-          <div class="d-grid gap-2">
-            <button class="btn btn-outline-primary" [routerLink]="['/appliedjob']">
-             Applied Jobs
-            </button>
-            <button class="btn btn-outline-danger" (click)="onLogout()">
-              Logout
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
 
 <div *ngIf="jobSeeker" class="container py-5 ">
   <div class="card p-4 card card-soft-mint " style="background: #f4f9fd; border-radius: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
@@ -36,6 +18,13 @@
       </div>
     </div>
   </div>
+
+  <button type="button" class="btn btn-sm btn-outline-primary position-absolute top-0 end-0 m-2">
+  Applied Jobs
+  </button>
+
+
+
 
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
