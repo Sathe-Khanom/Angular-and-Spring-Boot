@@ -2,6 +2,7 @@ package com.emranhss.dreamjob.repository;
 
 import com.emranhss.dreamjob.entity.JobSeeker;
 import com.emranhss.dreamjob.entity.User;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,6 +27,19 @@ public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
 
 
     Optional<JobSeeker> findByUser(User user);
+
+    // 🔹 Fetch all related collections for CV generation
+    @EntityGraph(attributePaths = {
+            "educations",
+            "experiences",
+            "trainings",
+            "skills",
+            "languages",
+            "extracurriculars",
+            "hobbies",
+            "references"
+    })
+    Optional<JobSeeker> findWithAllDetailsById(Long id);
 
 
 }
