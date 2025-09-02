@@ -17,6 +17,8 @@ import { AddCategoryComponent } from './jobs/add-category.component/add-category
 import { RoleGuard } from './auth/role-guard';
 import { Role } from './model/roles';
 import { MyjobsComponent } from './myjob/myjobs.component/myjobs.component';
+import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-jobs.component';
+import { EmployerJobApplications } from './employer/employer-job-applications/employer-job-applications';
 
 const routes: Routes = [
   {path: 'allUser' , component:AlluserComponent},
@@ -36,6 +38,8 @@ const routes: Routes = [
   {path: 'location', component: Addlocation},
     {path: 'category', component: AddCategoryComponent},
     {path: 'myjob', component: MyjobsComponent},
+    {path: 'apply', component: AppliedJobsComponent},
+    {path: 'application/:id', component: EmployerJobApplications},
 
 
   

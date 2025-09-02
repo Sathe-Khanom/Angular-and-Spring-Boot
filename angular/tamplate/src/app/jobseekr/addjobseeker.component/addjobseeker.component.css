@@ -1,0 +1,93 @@
+/* 🎨 Background container
+body, .container {
+  background: linear-gradient(135deg, #d0eafc, #f0d9ff);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 30px 10px;
+} */
+
+/* 🎁 Card styling without white */
+.card.bg-dark {
+  background: linear-gradient(135deg, #6dd5ed, #2193b0); /* vibrant blue gradient */
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+}
+
+/* 🔵 Form Section Titles */
+.card h2 {
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+h4.text-secondary {
+  color: #ffd700 !important;
+  font-weight: bold;
+  border-left: 5px solid #fff;
+  padding-left: 10px;
+}
+
+/* 🏷️ Labels */
+.form-label {
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+/* ✨ Input fields */
+.form-control,
+.form-select {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid #ffffff55;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.form-control::placeholder {
+  color: #f0f0f0aa;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #fff;
+  box-shadow: 0 0 10px rgba(255,255,255,0.4);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 📁 File input */
+input[type="file"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 10px;
+  border: 1px dashed #fff;
+}
+
+/* 🔘 Submit button */
+.btn.btn-info {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  padding: 10px 25px;
+  box-shadow: 0 6px 20px rgba(238, 9, 121, 0.4);
+  transition: all 0.3s ease;
+}
+.btn.btn-info:hover {
+  background: linear-gradient(135deg, #ee0979, #ff6a00);
+  transform: translateY(-2px);
+}
+
+/* 🔔 Alert box */
+.alert {
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 12px;
+}
+.alert-success {
+  background: linear-gradient(135deg, #a8ff78, #78ffd6);
+  color: #044d00;
+  border-left: 6px solid #28a745;
+}
+.alert-danger {
+  background: linear-gradient(135deg, #f77062, #fe5196);
+  color: #610000;
+  border-left: 6px solid #dc3545;
+}

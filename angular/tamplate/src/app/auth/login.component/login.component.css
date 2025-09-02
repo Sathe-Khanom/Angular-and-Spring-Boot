@@ -1,53 +1,92 @@
-/* Body background */
+/* ==== Vibrant Gradient Background ==== */
 body {
-  background: linear-gradient(135deg, #a18cd1, #fbc2eb); /* violet → lavender gradient */
-  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffe0f7, #e0f7fa, #e1bee7, #dcedc8);
+  background-size: 300% 300%;
+  animation: animatedGradient 20s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  color: #4a148c;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Login Card */
+@keyframes animatedGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==== Glassy Color Card ==== */
 .login-card {
-  background: linear-gradient(145deg, #8e44ad, #9b59b6); /* deep violet gradient */
-  color: #fff;
-  border-radius: 20px;
-  border: none;
-  box-shadow: 0px 0px 25px rgba(155, 89, 182, 0.7); /* colorful glow outside card */
+  background: linear-gradient(145deg, #fce4eccc, #f3e5f5cc, #e0f7facc);
+  border-radius: 24px;
+  border: 2px solid #f8bbd0;
+  box-shadow: 0 12px 32px rgba(233, 30, 99, 0.3);
+  transition: 0.4s ease-in-out;
 }
 
-/* Heading */
-.login-card h2 {
-  font-weight: bold;
-  color: #ffebee; /* soft pinkish heading */
-  letter-spacing: 1px;
+/* ==== Form Labels ==== */
+.form-label {
+  font-weight: 600;
+  color: #6a1b9a;
 }
 
-/* Input fields */
+/* ==== Input Fields ==== */
 .form-input {
-  border-radius: 12px;
-  border: none;
-  padding: 10px;
-  background: #f3e5f5;       /* light lavender background */
-  color: #4a148c;            /* deep violet text */
-  font-weight: 500;
+  background: #f3e5f5;
+  border: 2px solid #ba68c8;
+  color: #4a148c;
+  border-radius: 14px;
+  padding: 10px 14px;
+  transition: all 0.3s ease;
 }
 
 .form-input:focus {
-  border: 2px solid #ff80ab; /* pink border on focus */
-  box-shadow: 0 0 8px #ff80ab;
+  border-color: #ec407a;
+  box-shadow: 0 0 8px rgba(244, 143, 177, 0.6);
+  background: #fce4ec;
   outline: none;
 }
 
-/* Button */
+/* ==== Login Button ==== */
 .btn-login {
-  background: linear-gradient(90deg, #ff80ab, #ff4081); /* pink gradient button */
-  color: #fff;
-  font-weight: 600;
-  border-radius: 12px;
-  padding: 12px;
-  transition: 0.3s;
+  background: linear-gradient(to right, #ec407a, #ab47bc);
+  color: #fffde7;
+  font-weight: bold;
   border: none;
+  padding: 12px;
+  border-radius: 20px;
+  font-size: 1rem;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 6px 20px rgba(244, 143, 177, 0.4);
 }
 
 .btn-login:hover {
-  background: linear-gradient(90deg, #ff4081, #f50057); /* darker hover */
-  color: #fff;
+  background: linear-gradient(to right, #e91e63, #8e24aa);
+  transform: scale(1.03);
+  box-shadow: 0 8px 26px rgba(233, 30, 99, 0.5);
+}
+
+/* ==== Alert Messages ==== */
+.alert {
+  border-radius: 14px;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease;
+  border: none;
+}
+
+.alert-success {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+.alert-danger {
+  background-color: #ffcdd2;
+  color: #c62828;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

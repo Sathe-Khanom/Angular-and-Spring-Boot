@@ -1,0 +1,29 @@
+/* Colorful gradient backgrounds for variety */
+.bg-gradient-0 {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+.bg-gradient-1 {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+}
+.bg-gradient-2 {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+}
+.bg-gradient-3 {
+  background: linear-gradient(135deg, #96fbc4, #f9f586);
+}
+.bg-gradient-4 {
+  background: linear-gradient(135deg, #84fab0, #8fd3f4);
+}
+.bg-gradient-5 {
+  background: linear-gradient(135deg, #fccb90, #d57eeb);
+}
+
+/* Hover effect */
+.colorful-card {
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.colorful-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}

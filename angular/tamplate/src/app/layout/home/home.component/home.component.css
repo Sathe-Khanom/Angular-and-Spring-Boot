@@ -1,32 +1,95 @@
-
-
-
-/* Card background hobe lavender blue */
-section.bg-light .card {
-  background-color: #8889C9 !important;
-  color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Base background for body */
+body {
+  background: linear-gradient(to right, #fceabb, #f8b500, #fceabb);
+  background-size: 300% 300%;
+  animation: bgSlide 20s infinite;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-section.bg-light .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+@keyframes bgSlide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Button style */
-section.bg-light .btn-primary {
-  background-color: #333b8d;
+/* ===== HERO Section Styling ===== */
+section.py-5.text-white {
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: #6a1b9a !important;
+}
+
+section.py-5.text-white h1 {
+  color: #ad1457;
+  text-shadow: 1px 1px 4px #fce4ec;
+}
+
+section.py-5.text-white .btn-warning {
+  background-color: #ffb74d !important;
   border: none;
-  color: white;
+  color: #6d4c41;
+  font-weight: bold;
 }
 
-section.bg-light .btn-primary:hover {
-  background-color: #1f256b;
+/* ===== Features Section Styling ===== */
+section.bg-danger.bg-opacity-10 {
+  background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
 }
 
+section.bg-danger.bg-opacity-10 h2 {
+  color: #004d40;
+}
 
+section.bg-danger.bg-opacity-10 .p-4 {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
 
+section.bg-danger.bg-opacity-10 .p-4:hover {
+  transform: scale(1.03);
+}
 
+/* ===== Job Listings Section ===== */
+section.bg-dark.bg-opacity-10 {
+  background: linear-gradient(to right, #d4fc79, #96e6a1);
+}
 
+section.bg-dark.bg-opacity-10 h2 {
+  color: #2e7d32;
+}
+
+.card.shadow-sm {
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee) !important;
+  border: none !important;
+  border-radius: 15px !important;
+  color: #4e342e;
+}
+
+.card-footer.bg-transparent {
+  background-color: transparent !important;
+  border-top: none !important;
+}
+
+.btn.btn-primary.btn-sm {
+  background: #ff8a65 !important;
+  border: none;
+  color: #263238;
+  font-weight: bold;
+}
+
+.btn.btn-primary.btn-sm:hover {
+  background: #ff7043 !important;
+}
+
+/* ===== Form Selects ===== */
+.form-select {
+  background-color: #fff3e0 !important;
+  border: 1px solid #fdd835 !important;
+  color: #6d4c41;
+}
+
+/* ===== Responsive Logo ===== */
+.card img {
+  border-radius: 10px;
+  border: 2px solid #f48fb1;
+}

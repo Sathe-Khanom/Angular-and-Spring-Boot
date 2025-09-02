@@ -8,18 +8,16 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'tamplate';
+  protected title = 'template';
 
+  showSidebar = false; // Default to false
 
-  showSidebar = true;
-  
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        const jobsRoutes = event.url.startsWith('/alljobs/') || event.url.startsWith('/jobs/**') || event.url.startsWith('/home/');
-        this.showSidebar = jobsRoutes;
+        // Check if the current URL is exactly '/dash'
+        this.showSidebar = event.url === '/dash';
       }
     });
   }
-  
 }

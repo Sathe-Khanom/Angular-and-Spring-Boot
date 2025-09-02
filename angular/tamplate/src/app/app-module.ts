@@ -25,6 +25,7 @@ import { Addlocation } from './location/addlocation/addlocation';
 import { AddCategoryComponent } from './jobs/add-category.component/add-category.component';
 import { MyjobsComponent } from './myjob/myjobs.component/myjobs.component';
 import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-jobs.component';
+import { EmployerJobApplications } from './employer/employer-job-applications/employer-job-applications';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-
     Addlocation,
          AddCategoryComponent,
          MyjobsComponent,
-         AppliedJobsComponent
+         AppliedJobsComponent,
+         EmployerJobApplications
   ],
   imports: [
     BrowserModule,

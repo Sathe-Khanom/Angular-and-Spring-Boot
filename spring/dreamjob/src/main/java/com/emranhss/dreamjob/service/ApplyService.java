@@ -112,4 +112,13 @@ public class ApplyService {
                 .collect(Collectors.toList());
     }
 
+
+
+
+    public List<ApplyDTO> getApplicationsByJob(Long employerId, Long jobId) {
+        List<Apply> applies = applyRepository.findAllByEmployerAndJob(employerId, jobId);
+        return applies.stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+
+
 }

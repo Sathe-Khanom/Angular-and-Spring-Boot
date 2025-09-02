@@ -2,7 +2,9 @@ package com.emranhss.dreamjob.restcontroller;
 
 import com.emranhss.dreamjob.dto.ApplyDTO;
 import com.emranhss.dreamjob.entity.Apply;
+import com.emranhss.dreamjob.entity.Employer;
 import com.emranhss.dreamjob.entity.JobSeeker;
+import com.emranhss.dreamjob.repository.EmployerRepository;
 import com.emranhss.dreamjob.repository.JobSeekerRepository;
 import com.emranhss.dreamjob.service.ApplyService;
 import com.emranhss.dreamjob.service.JobSeekerService;
@@ -18,14 +20,18 @@ import java.util.Optional;
 @RequestMapping("/api/applications")
 public class ApplyRestController {
 
- @Autowired
- private ApplyService applyService;
+    @Autowired
+    private ApplyService applyService;
 
- @Autowired
- private JobSeekerService jobSeekerService;
+    @Autowired
+    private JobSeekerService jobSeekerService;
 
- @Autowired
- private JobSeekerRepository jobSeekerRepository;
+    @Autowired
+    private JobSeekerRepository jobSeekerRepository;
+
+
+    @Autowired
+    private EmployerRepository employerRepository;
 
     // ✅ Create a new application
     @PostMapping
@@ -37,7 +43,6 @@ public class ApplyRestController {
                 .orElseThrow(() -> new RuntimeException("Job Seeker Not Found"));
 
 
-
         Apply createdApply = applyService.createApplication(apply, jobSeeker);
 
         // Convert to DTO before returning
@@ -46,10 +51,6 @@ public class ApplyRestController {
 
         return ResponseEntity.ok(dto);
     }
-
-
-
-
 
 
     // ✅ Get all applications
@@ -86,8 +87,6 @@ public class ApplyRestController {
     }
 
 
-
-
     @GetMapping("/my")
     public List<ApplyDTO> getMyApplies(Authentication authentication) {
         if (authentication == null) {
@@ -97,15 +96,29 @@ public class ApplyRestController {
         String username = authentication.getName(); // "rahim@gmail.com"
         System.out.println("Logged in as: " + username);
 
-        JobSeeker jobSeeker = jobSeekerRepository.findByEmail(username)
+        JobSeeker jobSeeker = jobSeekerRepository.findByUserEmail(username)
                 .orElseThrow(() -> new RuntimeException("JobSeeker not found for user " + username));
 
         return applyService.getAppliesByJobSeeker(jobSeeker.getId());
     }
 
 
+    @GetMapping("/applicant/{jobId}")
+    public ResponseEntity<List<ApplyDTO>> getApplicationsForJob(
+            @PathVariable Long jobId,
+            Authentication authentication) {
 
+        if (authentication == null) {
+            throw new RuntimeException("User not authenticated");
+        }
 
+        String email = authentication.getName();
+        Employer employer = employerRepository.findByUserEmail(email)
+                .orElseThrow(() -> new RuntimeException("Employer not found"));
+
+        List<ApplyDTO> applications = applyService.getApplicationsByJob(employer.getId(), jobId);
+        return ResponseEntity.ok(applications);
+    }
 
 
 }

@@ -41,8 +41,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/locations/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/jobs/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/applications/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/applications/").permitAll()
+//                        .requestMatchers(HttpMethod.GET, "/api/applications/**").permitAll()
+//                        .requestMatchers(HttpMethod.POST, "/api/applications/").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/jobs/").hasRole("EMPLOYER")
                         .requestMatchers("/api/user/login",
                                 "/auth/login",
@@ -67,10 +67,9 @@ public class SecurityConfig {
                                 "/api/locations/",
                                 "/api/contact/",
                                 "/api/jobs/search**",
-                                "/api/contact/**",
-                                "/api/applications/**",
+                                "/api/contact/**"
 
-                        "/api/applications/").permitAll()
+                        ).permitAll()
                         .requestMatchers("/api/user/all",
                                 "/api/jobseeker/profile",
                                 "/api/education/add",
@@ -91,11 +90,12 @@ public class SecurityConfig {
                                 "/api/training/all",
                                 "/api/applications/apply",
                                 "/api/applications/my",
-                                "/images/**").hasRole("JOBSEEKER")
+                                "/images/**"
+                        ).hasRole("JOBSEEKER")
                         .requestMatchers("/api/employer/profile",
                                 "/images/**",
-                                "/api/jobs/**"
-
+                                "/api/jobs/**",
+                                "/api/applications/applicant/"
                                 ).hasRole("EMPLOYER")
                         .anyRequest().authenticated()
                 )
