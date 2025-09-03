@@ -25,21 +25,11 @@ public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
     // Find JobSeeker by email
     Optional<JobSeeker> findByEmail(String email);
 
+    Optional<JobSeeker> findById(Long id);
 
     Optional<JobSeeker> findByUser(User user);
 
-    // 🔹 Fetch all related collections for CV generation
-    @EntityGraph(attributePaths = {
-            "educations",
-            "experiences",
-            "trainings",
-            "skills",
-            "languages",
-            "extracurriculars",
-            "hobbies",
-            "references"
-    })
-    Optional<JobSeeker> findWithAllDetailsById(Long id);
+
 
 
 }

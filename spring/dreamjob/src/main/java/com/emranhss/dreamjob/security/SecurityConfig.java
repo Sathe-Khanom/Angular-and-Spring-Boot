@@ -38,7 +38,8 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(req -> req
-                                .requestMatchers("/api/cv/**").authenticated()
+
+
                                 .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/locations/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/jobs/**").permitAll()
@@ -68,7 +69,8 @@ public class SecurityConfig {
                                 "/api/locations/",
                                 "/api/contact/",
                                 "/api/jobs/search**",
-                                "/api/contact/**"
+                                "/api/contact/**",
+                                "/api/cv/view/by-user/**"
 
                         ).permitAll()
                         .requestMatchers("/api/user/all",

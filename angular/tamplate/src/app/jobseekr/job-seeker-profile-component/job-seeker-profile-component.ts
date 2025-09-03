@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { JobseekerService } from '../../service/jobseeker.service';
 import { Education } from '../../model/education.model';
@@ -25,7 +25,7 @@ import { AuthService } from '../../service/auth-service';
   templateUrl: './job-seeker-profile-component.html',
   styleUrl: './job-seeker-profile-component.css'
 })
-export class JobSeekerProfileComponent {
+export class JobSeekerProfileComponent implements OnInit {
 
   jobSeeker: any;
 
