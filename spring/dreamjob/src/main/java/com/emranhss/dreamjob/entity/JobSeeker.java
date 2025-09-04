@@ -29,32 +29,34 @@ public class JobSeeker {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Education> educations;
 
 
-    // ✅ Fix: Use Set instead of List
-    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Education> educations = new HashSet<>();
-
-    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Experience> experiences = new HashSet<>();
-
-    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Training> trainings = new HashSet<>();
-
-    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Skill> skills = new HashSet<>();
-
-    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Language> languages = new HashSet<>();
-
-    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Extracurricular> extracurriculars = new HashSet<>();
-
-    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Hobby> hobbies = new HashSet<>();
-
-    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Refference> references = new HashSet<>();
+//    // ✅ Fix: Use Set instead of List
+//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private Set<Education> educations = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private Set<Experience> experiences = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private Set<Training> trainings = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private Set<Skill> skills = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private Set<Language> languages = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private Set<Extracurricular> extracurriculars = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private Set<Hobby> hobbies = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private Set<Refference> references = new HashSet<>();
 
 
 
@@ -74,69 +76,69 @@ public class JobSeeker {
         this.user = user;
     }
 
-    public Set<Education> getEducations() {
-        return educations;
-    }
-
-    public void setEducations(Set<Education> educations) {
-        this.educations = educations;
-    }
-
-    public Set<Experience> getExperiences() {
-        return experiences;
-    }
-
-    public void setExperiences(Set<Experience> experiences) {
-        this.experiences = experiences;
-    }
-
-    public Set<Training> getTrainings() {
-        return trainings;
-    }
-
-    public void setTrainings(Set<Training> trainings) {
-        this.trainings = trainings;
-    }
-
-    public Set<Skill> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(Set<Skill> skills) {
-        this.skills = skills;
-    }
-
-    public Set<Language> getLanguages() {
-        return languages;
-    }
-
-    public void setLanguages(Set<Language> languages) {
-        this.languages = languages;
-    }
-
-    public Set<Extracurricular> getExtracurriculars() {
-        return extracurriculars;
-    }
-
-    public void setExtracurriculars(Set<Extracurricular> extracurriculars) {
-        this.extracurriculars = extracurriculars;
-    }
-
-    public Set<Hobby> getHobbies() {
-        return hobbies;
-    }
-
-    public void setHobbies(Set<Hobby> hobbies) {
-        this.hobbies = hobbies;
-    }
-
-    public Set<Refference> getReferences() {
-        return references;
-    }
-
-    public void setReferences(Set<Refference> references) {
-        this.references = references;
-    }
+//    public Set<Education> getEducations() {
+//        return educations;
+//    }
+//
+//    public void setEducations(Set<Education> educations) {
+//        this.educations = educations;
+//    }
+//
+//    public Set<Experience> getExperiences() {
+//        return experiences;
+//    }
+//
+//    public void setExperiences(Set<Experience> experiences) {
+//        this.experiences = experiences;
+//    }
+//
+//    public Set<Training> getTrainings() {
+//        return trainings;
+//    }
+//
+//    public void setTrainings(Set<Training> trainings) {
+//        this.trainings = trainings;
+//    }
+//
+//    public Set<Skill> getSkills() {
+//        return skills;
+//    }
+//
+//    public void setSkills(Set<Skill> skills) {
+//        this.skills = skills;
+//    }
+//
+//    public Set<Language> getLanguages() {
+//        return languages;
+//    }
+//
+//    public void setLanguages(Set<Language> languages) {
+//        this.languages = languages;
+//    }
+//
+//    public Set<Extracurricular> getExtracurriculars() {
+//        return extracurriculars;
+//    }
+//
+//    public void setExtracurriculars(Set<Extracurricular> extracurriculars) {
+//        this.extracurriculars = extracurriculars;
+//    }
+//
+//    public Set<Hobby> getHobbies() {
+//        return hobbies;
+//    }
+//
+//    public void setHobbies(Set<Hobby> hobbies) {
+//        this.hobbies = hobbies;
+//    }
+//
+//    public Set<Refference> getReferences() {
+//        return references;
+//    }
+//
+//    public void setReferences(Set<Refference> references) {
+//        this.references = references;
+//    }
 
     public Long getId() {
         return id;

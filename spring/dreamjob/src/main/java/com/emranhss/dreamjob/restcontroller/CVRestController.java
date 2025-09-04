@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/cv")
 public class CVRestController {
 
-    @Autowired
-    private CVService cvService;
+//    @Autowired
+//    private CVService cvService;
 
 //    @GetMapping("/download/{jobSeekerId}")
 //    public ResponseEntity<byte[]> downloadCV(@PathVariable Long jobSeekerId) {
@@ -29,22 +29,22 @@ public class CVRestController {
 //    }
 
 
-    @GetMapping("/view/by-user/{email}")
-    public ResponseEntity<byte[]> viewCVByUser(@PathVariable String email) {
-        try {
-            byte[] pdfBytes = cvService.generateCVForUser(email);
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_PDF);
-            headers.setContentDispositionFormData("inline", "CV_User_" + email + ".pdf");
-
-            return ResponseEntity.ok()
-                    .headers(headers)
-                    .body(pdfBytes);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(500).build();
-        }
+//    @GetMapping("/view/by-user/{email}")
+//    public ResponseEntity<byte[]> viewCVByUser(@PathVariable String email) {
+//        try {
+//            byte[] pdfBytes = cvService.generateCVForUser(email);
+//
+//            HttpHeaders headers = new HttpHeaders();
+//            headers.setContentType(MediaType.APPLICATION_PDF);
+//            headers.setContentDispositionFormData("inline", "CV_User_" + email + ".pdf");
+//
+//            return ResponseEntity.ok()
+//                    .headers(headers)
+//                    .body(pdfBytes);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return ResponseEntity.status(500).build();
+//        }
 
 //    @GetMapping("/view/{jobSeekerId}")
 //    public ResponseEntity<byte[]> viewCV(@PathVariable Long jobSeekerId) {
@@ -61,4 +61,4 @@ public class CVRestController {
 //    }
     }
 
-}
+

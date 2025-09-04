@@ -23,8 +23,8 @@ import java.io.ByteArrayOutputStream;
 @Service
 public class CVService {
 
-    @Autowired
-    private JobSeekerRepository jobSeekerRepository;
+//    @Autowired
+//    private JobSeekerRepository jobSeekerRepository;
 
 //    public byte[] generateCV(Long jobSeekerId) throws Exception {
 //        JobSeeker js = jobSeekerRepository.findById(jobSeekerId)
@@ -108,30 +108,30 @@ public class CVService {
 
 
 
-    @Transactional // important for lazy loading
-    public byte[] generateCVForUser(String email) throws Exception {
-        JobSeeker js = jobSeekerRepository.findByUserEmail(email)
-                .orElseThrow(() -> new RuntimeException("JobSeeker not found"));
-
-        // Force initialization of collections
-        js.getEducations().size();
-        js.getExperiences().size();
-        js.getTrainings().size();
-        js.getSkills().size();
-        js.getLanguages().size();
-        js.getExtracurriculars().size();
-        js.getHobbies().size();
-        js.getReferences().size();
-
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        PdfWriter writer = new PdfWriter(out);
-        PdfDocument pdfDoc = new PdfDocument(writer);
-        Document document = new Document(pdfDoc);
-
-        // --- PDF generation code stays the same ---
-        // You can reuse your current logic for adding profile, education, experience, etc.
-
-        document.close();
-        return out.toByteArray();
-    }
+//    @Transactional // important for lazy loading
+//    public byte[] generateCVForUser(String email) throws Exception {
+//        JobSeeker js = jobSeekerRepository.findByUserEmail(email)
+//                .orElseThrow(() -> new RuntimeException("JobSeeker not found"));
+//
+//        // Force initialization of collections
+//        js.getEducations().size();
+//        js.getExperiences().size();
+//        js.getTrainings().size();
+//        js.getSkills().size();
+//        js.getLanguages().size();
+//        js.getExtracurriculars().size();
+//        js.getHobbies().size();
+//        js.getReferences().size();
+//
+//        ByteArrayOutputStream out = new ByteArrayOutputStream();
+//        PdfWriter writer = new PdfWriter(out);
+//        PdfDocument pdfDoc = new PdfDocument(writer);
+//        Document document = new Document(pdfDoc);
+//
+//        // --- PDF generation code stays the same ---
+//        // You can reuse your current logic for adding profile, education, experience, etc.
+//
+//        document.close();
+//        return out.toByteArray();
+//    }
 }

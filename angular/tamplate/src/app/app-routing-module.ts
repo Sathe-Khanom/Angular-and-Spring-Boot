@@ -19,6 +19,7 @@ import { Role } from './model/roles';
 import { MyjobsComponent } from './myjob/myjobs.component/myjobs.component';
 import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-jobs.component';
 import { EmployerJobApplications } from './employer/employer-job-applications/employer-job-applications';
+import { CvDownloadComponent } from './cv/cv-download.component/cv-download.component';
 
 const routes: Routes = [
   {path: 'allUser' , component:AlluserComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
     {path: 'myjob', component: MyjobsComponent},
     {path: 'apply', component: AppliedJobsComponent},
     {path: 'application/:id', component: EmployerJobApplications},
+    {path: 'cv', component: CvDownloadComponent},
 
 
   

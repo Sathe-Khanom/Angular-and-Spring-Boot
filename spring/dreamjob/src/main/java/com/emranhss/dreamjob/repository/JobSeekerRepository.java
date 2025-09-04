@@ -25,7 +25,7 @@ public interface JobSeekerRepository extends JpaRepository<JobSeeker, Long> {
     // Find JobSeeker by email
     Optional<JobSeeker> findByEmail(String email);
 
-    Optional<JobSeeker> findById(Long id);
+//    Optional<JobSeeker> findById(Long id);
 
     Optional<JobSeeker> findByUser(User user);
 

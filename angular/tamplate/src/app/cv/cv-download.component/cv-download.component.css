@@ -1,0 +1,20 @@
+#cv-content h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+#cv-content h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#cv-content ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+#cv-content p, #cv-content li {
+  font-size: 14px;
+  line-height: 1.4;
+}

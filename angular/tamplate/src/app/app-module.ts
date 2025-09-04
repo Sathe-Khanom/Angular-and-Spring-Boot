@@ -26,6 +26,7 @@ import { AddCategoryComponent } from './jobs/add-category.component/add-category
 import { MyjobsComponent } from './myjob/myjobs.component/myjobs.component';
 import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-jobs.component';
 import { EmployerJobApplications } from './employer/employer-job-applications/employer-job-applications';
+import { CvDownloadComponent } from './cv/cv-download.component/cv-download.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { EmployerJobApplications } from './employer/employer-job-applications/em
          AddCategoryComponent,
          MyjobsComponent,
          AppliedJobsComponent,
-         EmployerJobApplications
+         EmployerJobApplications,
+         CvDownloadComponent
   ],
   imports: [
     BrowserModule,

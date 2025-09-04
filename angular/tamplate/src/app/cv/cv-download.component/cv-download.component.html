@@ -1,0 +1,33 @@
+<button (click)="generatePDF()" class="btn btn-primary mb-3">Download CV</button>
+
+<div id="cv-content" style="display: none; width: 800px; background: #f8f9fa; padding: 25px; font-family: 'Arial', sans-serif;">
+  <div style="text-align:center; border-bottom: 2px solid #007bff; padding-bottom:10px;">
+    <h1 style="margin:0; color:#007bff;">{{ jobSeeker.name }}</h1>
+    
+    <p>{{ jobSeeker.email }} | {{ jobSeeker.phone }}</p>
+  </div>
+
+  <h3>Education</h3>
+  <ul><li *ngFor="let edu of jobSeeker.educations">{{ edu.level }} - {{ edu.institute }} ({{ edu.year }})</li></ul>
+
+  <h3>Experience</h3>
+  <ul><li *ngFor="let exp of jobSeeker.experiences">{{ exp.position }} - {{ exp.company }} </li></ul>
+
+  <h3>Skills</h3>
+  <ul><li *ngFor="let skill of jobSeeker.skills">{{ skill }}</li></ul>
+
+  <h3>Languages</h3>
+  <ul><li *ngFor="let lang of jobSeeker.languages">{{ lang }}</li></ul>
+
+  <h3>Hobbies</h3>
+  <p>{{ jobSeeker.hobbies }}</p>
+
+  <h3>Extracurricular</h3>
+  <ul><li *ngFor="let extra of jobSeeker.extracurricular">{{ extra }}</li></ul>
+
+  <h3>References</h3>
+  <ul><li *ngFor="let ref of jobSeeker.references">{{ ref.name }} - {{ ref.contact }}</li></ul>
+
+  <h3>Trainings</h3>
+  <ul><li *ngFor="let train of jobSeeker.trainings">{{ train.title }} - {{ train.institute }} ({{ train.duration }})</li></ul>
+</div>
