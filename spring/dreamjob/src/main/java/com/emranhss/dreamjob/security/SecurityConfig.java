@@ -48,6 +48,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/jobs/").hasRole("EMPLOYER")
                         .requestMatchers("/api/user/login",
                                 "/auth/login",
+                                "/api/user/all",
                                 "/api/jobseeker/**",
                                 "/api/education/**",
                                 "/images/**",

@@ -12,28 +12,21 @@ export class AlluserComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(
-    private userService: UserService
-  ) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.loadUsers();
   }
 
-  loadUsers() {
-
+  loadUsers(): void {
     this.userService.getAllEmp().subscribe({
       next: (res) => {
         this.users = res;
-
       },
-      error: (err)=>{
-        console.log(err);
+      error: (err) => {
+        console.error('Error fetching users:', err);
       }
-
     });
-
-
   }
 
 

@@ -43,6 +43,27 @@ export class JobseekerService {
 
     return this.http.get<JobSeeker>(`${this.baseUrl}profile`, { headers });
   }
+getJobSeekerProfile(): JobSeeker {
+  return {
+    id: 0, // অথবা যেকোনো ডিফল্ট আইডি
+    name: '',
+    email: '',
+    phone: '',
+    gender: '',
+    address: '',
+    dateOfBirth: new Date(), // অথবা new Date('') দিলে ইনভ্যালিড হবে না
+    photo: '',
+
+    educations: [],
+    experiences: [],
+    skills: [],
+    languages: [],
+    hobbies: [],
+    extracurricular: [],
+    references: [],
+    trainings: []
+  };
+}
 
 
 }

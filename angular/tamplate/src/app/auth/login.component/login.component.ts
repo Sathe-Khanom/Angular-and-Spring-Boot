@@ -49,7 +49,7 @@ export class LoginComponent {
       this.router.navigate(['/emprofile']);
     }
     else if (role === 'ADMIN'){
-      this.router.navigate(['/adminprofile']);
+      this.router.navigate(['/dash']);
     }
 
   },

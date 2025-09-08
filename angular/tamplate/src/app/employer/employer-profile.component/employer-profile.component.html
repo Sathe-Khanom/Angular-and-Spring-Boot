@@ -41,10 +41,10 @@
             
             <!-- Company Logo -->
             <div class="col-md-3 text-center mb-4 mb-md-0">
-              <img [src]="employer.logo" alt="Company Logo" height="150" width="150"
+              <img [src]="'http://localhost:8085/images/employer/' + employer.logo" alt="Company Logo" height="150" width="150"
                    class="img-thumbnail shadow-sm rounded-circle border border-3 border-primary mb-3" />
               <h5 class="fw-bold text-primary">{{ employer.companyName || 'Company Name' }}</h5>
-              <span class="badge bg-info text-dark">{{ employer.industry || 'Industry' }}</span>
+              <span class="badge bg-info text-dark">{{ employer.industryType || 'Industry' }}</span>
             </div>
 
             <!-- Contact Info -->
@@ -69,7 +69,7 @@
                   <i class="bi bi-globe me-2 text-secondary"></i>
                   <strong>Website:</strong>
                   <a [href]="employer.website" target="_blank" class="ms-1 link-primary text-decoration-none">
-                    {{ employer.website }}
+                    {{ employer.companyWebsite }}
                   </a>
                 </div>
               </div>           

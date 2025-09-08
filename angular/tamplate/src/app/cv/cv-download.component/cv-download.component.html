@@ -1,33 +1,103 @@
-<button (click)="generatePDF()" class="btn btn-primary mb-3">Download CV</button>
+<button class="btn btn-outline-success my-3" (click)="downloadCV()">Download CV</button>
 
-<div id="cv-content" style="display: none; width: 800px; background: #f8f9fa; padding: 25px; font-family: 'Arial', sans-serif;">
-  <div style="text-align:center; border-bottom: 2px solid #007bff; padding-bottom:10px;">
-    <h1 style="margin:0; color:#007bff;">{{ jobSeeker.name }}</h1>
-    
+<div #cvContent class="cv-container hidden" >
+  <!-- Header -->
+  <div class="cv-header avoid-break">
+    <img [src]="'http://localhost:8085/images/jobSeeker/' + jobSeeker.photo" alt="Photo" />
+    <h2>{{ jobSeeker.name }}</h2>
     <p>{{ jobSeeker.email }} | {{ jobSeeker.phone }}</p>
+    <p>{{ jobSeeker.address }}</p>
   </div>
 
-  <h3>Education</h3>
-  <ul><li *ngFor="let edu of jobSeeker.educations">{{ edu.level }} - {{ edu.institute }} ({{ edu.year }})</li></ul>
+  <!-- Personal Info -->
+  <div class="cv-section avoid-break">
+    <h4>Personal Information</h4>
+    <p><strong>Gender:</strong> {{ jobSeeker.gender }}</p>
+    <p><strong>Date of Birth:</strong> {{ jobSeeker.dateOfBirth }}</p>
+  </div>
 
-  <h3>Experience</h3>
-  <ul><li *ngFor="let exp of jobSeeker.experiences">{{ exp.position }} - {{ exp.company }} </li></ul>
+  <!-- Education -->
+  <div *ngIf="educations.length > 0" class="cv-section avoid-break">
+    <h4>Education</h4>
+    <ul>
+      <li *ngFor="let edu of educations" class="avoid-break">
+        <strong>{{ edu.level }}</strong> - {{ edu.institute }} ({{ edu.year }})<br />
+        <small>Result: {{ edu.result }} | Board: {{ edu.board }}</small>
+      </li>
+    </ul>
+  </div>
 
-  <h3>Skills</h3>
-  <ul><li *ngFor="let skill of jobSeeker.skills">{{ skill }}</li></ul>
+  <!-- Experience -->
+  <div *ngIf="experiences.length > 0" class="cv-section avoid-break">
+    <h4>Work Experience</h4>
+    <ul>
+      <li *ngFor="let exp of experiences" class="avoid-break">
+        <strong>{{ exp.position }}</strong> at {{ exp.company }}<br />
+        <small>{{ exp.fromDate }} to {{ exp.toDate || 'Present' }}</small><br />
+        <p>{{ exp.description }}</p>
+      </li>
+    </ul>
+  </div>
 
-  <h3>Languages</h3>
-  <ul><li *ngFor="let lang of jobSeeker.languages">{{ lang }}</li></ul>
+  <!-- Skills -->
+  <div *ngIf="skills.length > 0" class="cv-section avoid-break">
+    <h4>Skills</h4>
+    <ul>
+      <li *ngFor="let skill of skills" class="avoid-break">
+        {{ skill.name }} - {{ skill.level }}
+      </li>
+    </ul>
+  </div>
 
-  <h3>Hobbies</h3>
-  <p>{{ jobSeeker.hobbies }}</p>
+  <!-- Trainings -->
+  <div *ngIf="trainings.length > 0" class="cv-section avoid-break">
+    <h4>Trainings</h4>
+    <ul>
+      <li *ngFor="let training of trainings" class="avoid-break">
+        <strong>{{ training.title }}</strong> at {{ training.institute }}<br />
+        <small>Duration: {{ training.duration }}</small><br />
+        <p>{{ training.description }}</p>
+      </li>
+    </ul>
+  </div>
 
-  <h3>Extracurricular</h3>
-  <ul><li *ngFor="let extra of jobSeeker.extracurricular">{{ extra }}</li></ul>
+  <!-- Extracurricular -->
+  <div *ngIf="extracurriculars.length > 0" class="cv-section avoid-break">
+    <h4>Extracurricular Activities</h4>
+    <ul>
+      <li *ngFor="let ex of extracurriculars" class="avoid-break">
+        <strong>{{ ex.title }}</strong> - {{ ex.role }}<br />
+        <p>{{ ex.description }}</p>
+      </li>
+    </ul>
+  </div>
 
-  <h3>References</h3>
-  <ul><li *ngFor="let ref of jobSeeker.references">{{ ref.name }} - {{ ref.contact }}</li></ul>
+  <!-- Languages -->
+  <div *ngIf="languages.length > 0" class="cv-section avoid-break">
+    <h4>Languages</h4>
+    <ul>
+      <li *ngFor="let lang of languages" class="avoid-break">
+        {{ lang.name }} - {{ lang.proficiency }}
+      </li>
+    </ul>
+  </div>
 
-  <h3>Trainings</h3>
-  <ul><li *ngFor="let train of jobSeeker.trainings">{{ train.title }} - {{ train.institute }} ({{ train.duration }})</li></ul>
+  <!-- Hobbies -->
+  <div *ngIf="hobbies.length > 0" class="cv-section avoid-break">
+    <h4>Hobbies</h4>
+    <ul>
+      <li *ngFor="let hobby of hobbies" class="avoid-break">{{ hobby.name }}</li>
+    </ul>
+  </div>
+
+  <!-- References -->
+  <div *ngIf="references.length > 0" class="cv-section avoid-break">
+    <h4>References</h4>
+    <ul>
+      <li *ngFor="let ref of references" class="avoid-break">
+        <strong>{{ ref.name }}</strong><br />
+        {{ ref.relation }} | {{ ref.contact }}
+      </li>
+    </ul>
+  </div>
 </div>

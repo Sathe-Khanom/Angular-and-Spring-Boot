@@ -18,6 +18,7 @@ import { LanguageService } from '../../service/language.service';
 import { HobbyService } from '../../service/hobby.service';
 import { AuthService } from '../../service/auth-service';
 import jsPDF from 'jspdf';
+import { JobSeeker } from '../../model/jobseeker.model';
 
 @Component({
   selector: 'app-job-seeker-profile-component',
@@ -26,7 +27,7 @@ import jsPDF from 'jspdf';
   styleUrl: './job-seeker-profile-component.css'
 })
 export class JobSeekerProfileComponent implements OnInit {
-
+ jobSeekerProfile!: JobSeeker;
   jobSeeker: any;
 
   educations: Education[] = [];
@@ -117,6 +118,12 @@ export class JobSeekerProfileComponent implements OnInit {
     this.loadReferences();
     this.loadLanguages();
     this.loadHobbies();
+//  this.jobSeekerService.getJobSeekerProfile().subscribe({
+//   next: (data: any) => {   // temporarily use 'any'
+//     this.jobSeekerProfile = data;
+//   },
+//   error: (err) => console.error(err)
+// });
     //  this.loadAllData();
  
   }

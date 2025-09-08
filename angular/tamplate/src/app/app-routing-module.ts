@@ -14,8 +14,6 @@ import { HomeComponent } from './layout/home/home.component/home.component';
 import { ContactComponent } from './layout/contact/contact.component/contact.component';
 import { Addlocation } from './location/addlocation/addlocation';
 import { AddCategoryComponent } from './jobs/add-category.component/add-category.component';
-import { RoleGuard } from './auth/role-guard';
-import { Role } from './model/roles';
 import { MyjobsComponent } from './myjob/myjobs.component/myjobs.component';
 import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-jobs.component';
 import { EmployerJobApplications } from './employer/employer-job-applications/employer-job-applications';
