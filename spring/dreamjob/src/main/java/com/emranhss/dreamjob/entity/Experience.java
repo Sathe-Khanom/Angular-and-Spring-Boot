@@ -1,5 +1,6 @@
 package com.emranhss.dreamjob.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -18,6 +19,8 @@ public class Experience {
     private String description;
 
     @ManyToOne
+    @JoinColumn(name = "job_seeker_id")
+    @JsonBackReference
     private JobSeeker jobSeeker;
 
     public Long getId() {

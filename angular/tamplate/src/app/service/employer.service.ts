@@ -43,4 +43,12 @@ export class EmployerService {
   }
 
 
+
+   getAllEmployers(): Observable<Employer[]> {
+    return this.http.get<Employer[]>(this.baseUrl+"all");
+  }
+
+  
+
+
 }

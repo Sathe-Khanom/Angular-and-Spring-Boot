@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth-service';
 import { JobSeeker } from '../model/jobseeker.model';
 import { isPlatformBrowser } from '@angular/common';
+import { AllJobs } from '../jobs/all-jobs/all-jobs';
+import { ApplyDTO } from '../model/applyDTO';
+import { JobSeekerDTO } from '../model/jobseekerDto';
 
 @Injectable({
   providedIn: 'root'
@@ -43,27 +46,35 @@ export class JobseekerService {
 
     return this.http.get<JobSeeker>(`${this.baseUrl}profile`, { headers });
   }
-getJobSeekerProfile(): JobSeeker {
-  return {
-    id: 0, // অথবা যেকোনো ডিফল্ট আইডি
-    name: '',
-    email: '',
-    phone: '',
-    gender: '',
-    address: '',
-    dateOfBirth: new Date(), // অথবা new Date('') দিলে ইনভ্যালিড হবে না
-    photo: '',
 
-    educations: [],
-    experiences: [],
-    skills: [],
-    languages: [],
-    hobbies: [],
-    extracurricular: [],
-    references: [],
-    trainings: []
-  };
-}
+
+
+  getJobSeekerProfile(): JobSeeker {
+    return {
+      id: 0, // অথবা যেকোনো ডিফল্ট আইডি
+      name: '',
+      email: '',
+      phone: '',
+      gender: '',
+      address: '',
+      dateOfBirth: new Date(), // অথবা new Date('') দিলে ইনভ্যালিড হবে না
+      photo: '',
+
+      educations: [],
+      experiences: [],
+      skills: [],
+      languages: [],
+      hobbies: [],
+      extracurricular: [],
+      references: [],
+      trainings: []
+    };
+  }
+
+
+   getFullJobSeeker(jobSeekerId: number): Observable<JobSeekerDTO> {
+    return this.http.get<JobSeekerDTO>(`${this.baseUrl}${jobSeekerId}/full`);
+  }
 
 
 }

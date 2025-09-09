@@ -1,5 +1,6 @@
 package com.emranhss.dreamjob.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,8 @@ public class Language {
     private String proficiency; // Basic, Fluent, Native
 
     @ManyToOne
+    @JoinColumn(name = "job_seeker_id")
+    @JsonBackReference
     private JobSeeker jobSeeker;
 
     public Long getId() {

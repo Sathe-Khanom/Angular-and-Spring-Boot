@@ -1,5 +1,7 @@
 package com.emranhss.dreamjob.service;
 
+import com.emranhss.dreamjob.dto.JobSeekerDTO;
+import com.emranhss.dreamjob.dto.JobSeekerFullDTO;
 import com.emranhss.dreamjob.entity.JobSeeker;
 import com.emranhss.dreamjob.repository.JobSeekerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,22 @@ public class JobSeekerService {
     public JobSeeker getProfileByUserId(int userId) {
         return jobSeekerRepository.findByUserId(userId)
                 .orElseThrow(() -> new RuntimeException("Job Seeker not found"));
+    }
+
+
+
+
+
+
+    public JobSeekerFullDTO getJobSeekerFullData(Long id) {
+        Optional<JobSeeker> jobSeekerOpt = jobSeekerRepository.findById(id);
+
+        if (jobSeekerOpt.isPresent()) {
+            JobSeeker jobSeeker = jobSeekerOpt.get();
+            return new JobSeekerFullDTO(jobSeeker); // You can also map educations, experiences, etc. if needed
+        } else {
+            throw new RuntimeException("JobSeeker not found with id: " + id);
+        }
     }
 
 

@@ -3,17 +3,17 @@
 <div #cvContent class="cv-container hidden" >
   <!-- Header -->
   <div class="cv-header avoid-break">
-    <img [src]="'http://localhost:8085/images/jobSeeker/' + jobSeeker.photo" alt="Photo" />
-    <h2>{{ jobSeeker.name }}</h2>
-    <p>{{ jobSeeker.email }} | {{ jobSeeker.phone }}</p>
-    <p>{{ jobSeeker.address }}</p>
+    <img [src]="'http://localhost:8085/images/jobSeeker/' + jobSeeker?.photo" alt="Photo" />
+    <h2>{{ jobSeeker?.name }}</h2>
+    <p>{{ jobSeeker?.email }} | {{ jobSeeker?.phone }}</p>
+    <p>{{ jobSeeker?.address }}</p>
   </div>
 
   <!-- Personal Info -->
   <div class="cv-section avoid-break">
     <h4>Personal Information</h4>
-    <p><strong>Gender:</strong> {{ jobSeeker.gender }}</p>
-    <p><strong>Date of Birth:</strong> {{ jobSeeker.dateOfBirth }}</p>
+    <p><strong>Gender:</strong> {{ jobSeeker?.gender }}</p>
+    <p><strong>Date of Birth:</strong> {{ jobSeeker?.dateOfBirth | date:'mediumDate' }}</p>
   </div>
 
   <!-- Education -->

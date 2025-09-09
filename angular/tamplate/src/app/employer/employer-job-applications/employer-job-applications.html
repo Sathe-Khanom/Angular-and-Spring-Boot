@@ -8,21 +8,28 @@
   {{ errorMessage }}
 </div>
 
-<div class="row">
-  <div *ngFor="let app of applications" class="col-md-4 mb-3">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">{{ app.jobSeekerName }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Applied for: {{ app.jobTitle }}</h6>
-        <p class="card-text">
-          Employer: {{ app.employerName }} <br>
-          Job ID: {{ app.jobId }} <br>
-          Application ID: {{ app.id }}
-        </p>
+<div class="container">
+  <div class="row my-5">
+    <div *ngFor="let app of applications" class="col-md-4 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ app.jobSeekerName }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Applied for: {{ app.jobTitle }}</h6>
+          <p class="card-text">
+            Employer: {{ app.employerName }} <br>
+            Job ID: {{ app.jobId }} <br>
+            Application ID: {{ app.id }}
+          </p>
+            <button (click)="downloadCv(app.jobSeekerId)">Download CV</button>
+           
+
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-cv-download #cvDownloader class="d-none"></app-cv-download>
 
 <div *ngIf="!loading && applications.length === 0" class="alert alert-info">
   No applications yet for this job.

@@ -5,21 +5,21 @@ export interface JobDTO {
   salary: number;
   jobType: string;
   postedDate: string;
-    category: {
-    id: number;
-    name: string;
-  };
-  location: {
-    id: number;
-    name: string;
-  };
+
+  // Category info
+  categoryId?: number;
+  categoryName?: string;
+
+  // Location info
+  locationId?: number;
+  locationName?: string;
 
   // Employer info
-  employerId: number;
-  companyName: string;
-  contactPerson: string;
-  email: string;
-  phone: string;
-  companyWebsite: string;
-  logo: string
+  employerId?: number;
+  companyName?: string;
+  contactPerson?: string;
+  email?: string;
+  phone?: string;
+  companyWebsite?: string;
+  logo?: string;
 }

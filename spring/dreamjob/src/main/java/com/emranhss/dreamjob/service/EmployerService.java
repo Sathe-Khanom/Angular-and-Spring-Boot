@@ -69,4 +69,8 @@ public class EmployerService {
         return employerRepository.findByUserId(userId)
                 .orElseThrow(() -> new RuntimeException("Employer not found"));
     }
+
+
+
+
 }

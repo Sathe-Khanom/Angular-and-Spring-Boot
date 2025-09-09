@@ -40,6 +40,7 @@ public interface JobRepository extends JpaRepository <Job, Long> {
     List<Job> findByLocationIdAndCategoryId(Long locationId, Long categoryId);
 
 
+    List<Job> findByEmployerCompanyName(String companyName);
 
 
 }

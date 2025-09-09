@@ -1,6 +1,8 @@
 package com.emranhss.dreamjob.restcontroller;
 
 
+import com.emranhss.dreamjob.dto.JobSeekerDTO;
+import com.emranhss.dreamjob.dto.JobSeekerFullDTO;
 import com.emranhss.dreamjob.entity.JobSeeker;
 import com.emranhss.dreamjob.entity.User;
 import com.emranhss.dreamjob.repository.IUserRepo;
@@ -82,5 +84,12 @@ public class JobSeekerRestController {
         return ResponseEntity.ok(jobSeeker);
 
     }
+
+
+    @GetMapping("{id}/full")
+    public JobSeekerFullDTO getJobSeekerFullData(@PathVariable Long id) {
+        return jobSeekerService.getJobSeekerFullData(id);
+    }
+
 
 }

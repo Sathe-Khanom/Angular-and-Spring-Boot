@@ -1,6 +1,7 @@
 package com.emranhss.dreamjob.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,8 @@ public class Hobby {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name = "job_seeker_id")
+    @JsonBackReference
     private JobSeeker jobSeeker;
 
 

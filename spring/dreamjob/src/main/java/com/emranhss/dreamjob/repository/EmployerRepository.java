@@ -1,6 +1,7 @@
 package com.emranhss.dreamjob.repository;
 
 import com.emranhss.dreamjob.entity.Employer;
+import com.emranhss.dreamjob.entity.Job;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

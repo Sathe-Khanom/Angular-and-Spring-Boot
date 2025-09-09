@@ -1,5 +1,6 @@
 package com.emranhss.dreamjob.restcontroller;
 import com.emranhss.dreamjob.dto.JobDTO;
+import com.emranhss.dreamjob.dto.JobSeekerDTO;
 import com.emranhss.dreamjob.entity.Job;
 import com.emranhss.dreamjob.repository.JobRepository;
 import com.emranhss.dreamjob.service.JobService;
@@ -75,6 +76,21 @@ public class JobRestController {
             @RequestParam(required = false) Long categoryId) {
         return jobService.searchJobs(locationId, categoryId);
     }
+
+
+
+    // Get jobs by company name
+    @GetMapping("company")
+    public List<JobDTO> getJobsByCompany(@RequestParam String companyName) {
+        return jobService.getJobsByCompanyName(companyName);
+    }
+
+
+   // http://localhost:8085/api/jobs/company?companyName=ABM%20Company
+
+
+
+
 
 
 

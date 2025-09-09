@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class JobDTO {
 
+
     private Long id;
     private String title;
     private String description;
@@ -21,6 +22,13 @@ public class JobDTO {
     private String companyWebsite;
     private String logo;
 
+    // Category info
+    private Long categoryId;
+    private String categoryName;
+
+    // Location info
+    private Long locationId;
+    private String locationName;
 
     public JobDTO(Job job) {
         this.id = job.getId();
@@ -38,7 +46,16 @@ public class JobDTO {
             this.phone = job.getEmployer().getPhone();
             this.companyWebsite = job.getEmployer().getCompanyWebsite();
             this.logo = job.getEmployer().getLogo();
+        }
 
+        if (job.getCategory() != null) {
+            this.categoryId = job.getCategory().getId();
+            this.categoryName = job.getCategory().getName(); // Assuming Category has getName()
+        }
+
+        if (job.getLocation() != null) {
+            this.locationId = job.getLocation().getId();
+            this.locationName = job.getLocation().getName(); // Assuming Location has getName()
         }
     }
 
@@ -145,5 +162,37 @@ public class JobDTO {
 
     public void setLogo(String logo) {
         this.logo = logo;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public Long getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(Long locationId) {
+        this.locationId = locationId;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
     }
 }

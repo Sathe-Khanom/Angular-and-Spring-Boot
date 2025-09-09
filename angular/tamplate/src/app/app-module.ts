@@ -27,6 +27,7 @@ import { MyjobsComponent } from './myjob/myjobs.component/myjobs.component';
 import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-jobs.component';
 import { EmployerJobApplications } from './employer/employer-job-applications/employer-job-applications';
 import { CvDownloadComponent } from './cv/cv-download.component/cv-download.component';
+import { CompanyComponent } from './employer/company/company.component/company.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { CvDownloadComponent } from './cv/cv-download.component/cv-download.comp
          MyjobsComponent,
          AppliedJobsComponent,
          EmployerJobApplications,
-         CvDownloadComponent
+         CvDownloadComponent,
+         CompanyComponent
   ],
   imports: [
     BrowserModule,

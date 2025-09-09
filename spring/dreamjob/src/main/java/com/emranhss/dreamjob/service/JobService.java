@@ -102,6 +102,17 @@ public class JobService {
         return jobs.stream().map(JobDTO::new).toList();
     }
 
+//    // Fetch jobs by company name
+//    public List<Job> getJobsByCompanyName(String companyName) {
+//        return jobRepository.findByEmployerCompanyName(companyName);
+//    }
+
+
+    public List<JobDTO> getJobsByCompanyName(String companyName) {
+        List<Job> jobs = jobRepository.findByEmployerCompanyName(companyName);
+        return jobs.stream().map(JobDTO::new).toList();
+    }
+
 
 
 

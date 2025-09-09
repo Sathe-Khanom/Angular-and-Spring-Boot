@@ -93,6 +93,12 @@ export class JobService {
   }
 
 
+  getJobsByCompany(companyName: string): Observable<JobDTO[]> {
+    const params = new HttpParams().set('companyName', companyName);
+    return this.http.get<JobDTO[]>(`${this.baseUrl}company`, { params });
+  }
+
+
 
 
 }

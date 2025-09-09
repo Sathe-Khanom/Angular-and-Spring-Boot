@@ -33,30 +33,31 @@ public class JobSeeker {
     private List<Education> educations;
 
 
-//    // ✅ Fix: Use Set instead of List
-//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Set<Education> educations = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Set<Experience> experiences = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Set<Training> trainings = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Set<Skill> skills = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Set<Language> languages = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Set<Extracurricular> extracurriculars = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Set<Hobby> hobbies = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Set<Refference> references = new HashSet<>();
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Refference> refferences;
+
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Experience> experiences;
+
+@OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Hobby> hobbies;
+
+
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Extracurricular> extracurriculars;
+
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Language> languages;
+
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Skill> skills;
+
+
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Training> trainings;
+
+
+
 
 
 
@@ -76,69 +77,6 @@ public class JobSeeker {
         this.user = user;
     }
 
-//    public Set<Education> getEducations() {
-//        return educations;
-//    }
-//
-//    public void setEducations(Set<Education> educations) {
-//        this.educations = educations;
-//    }
-//
-//    public Set<Experience> getExperiences() {
-//        return experiences;
-//    }
-//
-//    public void setExperiences(Set<Experience> experiences) {
-//        this.experiences = experiences;
-//    }
-//
-//    public Set<Training> getTrainings() {
-//        return trainings;
-//    }
-//
-//    public void setTrainings(Set<Training> trainings) {
-//        this.trainings = trainings;
-//    }
-//
-//    public Set<Skill> getSkills() {
-//        return skills;
-//    }
-//
-//    public void setSkills(Set<Skill> skills) {
-//        this.skills = skills;
-//    }
-//
-//    public Set<Language> getLanguages() {
-//        return languages;
-//    }
-//
-//    public void setLanguages(Set<Language> languages) {
-//        this.languages = languages;
-//    }
-//
-//    public Set<Extracurricular> getExtracurriculars() {
-//        return extracurriculars;
-//    }
-//
-//    public void setExtracurriculars(Set<Extracurricular> extracurriculars) {
-//        this.extracurriculars = extracurriculars;
-//    }
-//
-//    public Set<Hobby> getHobbies() {
-//        return hobbies;
-//    }
-//
-//    public void setHobbies(Set<Hobby> hobbies) {
-//        this.hobbies = hobbies;
-//    }
-//
-//    public Set<Refference> getReferences() {
-//        return references;
-//    }
-//
-//    public void setReferences(Set<Refference> references) {
-//        this.references = references;
-//    }
 
     public Long getId() {
         return id;
@@ -212,4 +150,68 @@ public class JobSeeker {
         this.user = user;
     }
 
+    public List<Education> getEducations() {
+        return educations;
+    }
+
+    public void setEducations(List<Education> educations) {
+        this.educations = educations;
+    }
+
+
+    public List<Refference> getRefferences() {
+        return refferences;
+    }
+
+    public void setRefferences(List<Refference> refferences) {
+        this.refferences = refferences;
+    }
+
+    public List<Experience> getExperiences() {
+        return experiences;
+    }
+
+    public void setExperiences(List<Experience> experiences) {
+        this.experiences = experiences;
+    }
+
+    public List<Hobby> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(List<Hobby> hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public List<Extracurricular> getExtracurriculars() {
+        return extracurriculars;
+    }
+
+    public void setExtracurriculars(List<Extracurricular> extracurriculars) {
+        this.extracurriculars = extracurriculars;
+    }
+
+    public List<Language> getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(List<Language> languages) {
+        this.languages = languages;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
+
+    public List<Training> getTrainings() {
+        return trainings;
+    }
+
+    public void setTrainings(List<Training> trainings) {
+        this.trainings = trainings;
+    }
 }
