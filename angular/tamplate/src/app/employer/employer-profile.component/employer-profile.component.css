@@ -1,4 +1,4 @@
-.employer-profile-container {
+/* .employer-profile-container {
   border: 1px solid #ccc;
   padding: 20px;
   width: 400px;
@@ -21,4 +21,151 @@
 .profile-info p {
   font-size: 16px;
   margin: 6px 0;
+} */
+
+
+/* Body background with vibrant gradient */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #f6f9fc, #e0f7fa);
+  color: #333;
+  min-height: 100vh;
 }
+
+/* Sidebar Card */
+.col-md-3 .card {
+  background: linear-gradient(to bottom right, #e3f2fd, #fce4ec);
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.col-md-3 .card-body h5 {
+  color: #6a1b9a;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Sidebar Buttons */
+.col-md-3 .btn-outline-primary {
+  color: #3949ab;
+  border-color: #3949ab;
+  background-color: #e8eaf6;
+  font-weight: 500;
+  border-radius: 12px;
+}
+.col-md-3 .btn-outline-primary:hover {
+  background-color: #3949ab;
+  color: #fff;
+}
+
+.col-md-3 .btn-outline-danger {
+  color: #c62828;
+  border-color: #c62828;
+  background-color: #ffebee;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.col-md-3 .btn-outline-danger:hover {
+  background-color: #c62828;
+  color: #fff;
+}
+
+/* Employer Card */
+.card.shadow-lg {
+  background: #ffffff;
+  border-radius: 18px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.card.shadow-lg:hover {
+  transform: scale(1.01);
+}
+
+/* Card Header */
+.card-header {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  text-align: center;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  padding: 1.2rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Employer Logo */
+.img-thumbnail {
+  border: 5px solid #4dd0e1;
+  border-radius: 50%;
+  background-color: #e0f7fa;
+  padding: 8px;
+  transition: transform 0.3s ease;
+}
+.img-thumbnail:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(77, 208, 225, 0.5);
+}
+
+/* Company Name */
+.text-primary {
+  color: #0072ff !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Industry Type Badge */
+.badge.bg-info {
+  background-color: #ffecb3 !important;
+  color: #6d4c41 !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.5em 1em;
+  border-radius: 12px;
+}
+
+/* Icons */
+.bi {
+  color: #6a1b9a;
+  font-size: 1.1rem;
+}
+
+/* Contact Info */
+.card-body .text-dark {
+  font-weight: 500;
+  color: #333 !important;
+}
+
+/* Link Styling */
+a.link-primary {
+  color: #0072ff;
+  font-weight: 500;
+  text-decoration: none;
+}
+a.link-primary:hover {
+  text-decoration: underline;
+}
+
+/* Loading Spinner */
+.spinner-border.text-primary {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.35em;
+}
+
+/* Transitions */
+.card,
+.btn,
+.img-thumbnail {
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+

@@ -1,17 +1,17 @@
-/* Soft Mint Green */
+/* Soft Mint Green
 .card-soft-mint {
   background-color: #d8f9e3;
 }
 
 /* Button Styling */
-.btn {
+/* .btn {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 /* Gradient for other sections (if needed) */
-.card.bg-gradient {
+/* .card.bg-gradient {
   background: linear-gradient(135deg, #17a2b8, #6610f2);
 }
 
@@ -22,4 +22,211 @@
 
 .accordion-button:focus {
   box-shadow: none;
+} */ 
+
+/* --- Profile Card Enhancements --- */
+.card {
+  background: linear-gradient(135deg, #e0f7fa, #fff3e0);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
 }
+
+.card:hover {
+  transform: scale(1.015);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* --- Profile Image Styling --- */
+.profile-img {
+  border: 5px solid #ff6f91;
+  box-shadow: 0 5px 15px rgba(255, 111, 145, 0.4);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: rotate(1deg) scale(1.03);
+}
+
+/* --- Header Name & Gender --- */
+h4 {
+  font-weight: bold;
+  color: #2c3e50;
+  text-shadow: 1px 1px #fff;
+}
+
+.text-muted {
+  font-style: italic;
+  color: #6c757d !important;
+}
+
+/* --- Button Glows & Themes --- */
+button.btn {
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.3s all ease-in-out;
+}
+
+button.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Color-specific glow effects */
+.btn-primary {
+  background: linear-gradient(to right, #2193b0, #6dd5ed);
+  color: white;
+  border: none;
+}
+
+.btn-dark {
+  background: linear-gradient(to right, #000000, #434343);
+  color: white;
+}
+
+.btn-warning {
+  background: linear-gradient(to right, #ffe259, #ffa751);
+  color: #000;
+}
+
+.btn-danger {
+  background: linear-gradient(to right, #ff5858, #f857a6);
+  color: white;
+}
+
+.btn-info {
+  background: linear-gradient(to right, #43e97b, #38f9d7);
+  color: black;
+}
+
+.btn-success {
+  background: linear-gradient(to right, #56ab2f, #a8e063);
+}
+
+.btn-secondary {
+  background: linear-gradient(to right, #bdc3c7, #2c3e50);
+  color: white;
+}
+
+/* --- Accordion Glow Style --- */
+.accordion-button {
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  color: #333;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.accordion-button:not(.collapsed) {
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  color: #000;
+}
+
+/* Accordion Section Highlight */
+.accordion-body {
+  background-color: #fefefe;
+  border-left: 5px solid #00bcd4;
+  padding: 1.75rem;
+  border-radius: 0 0 15px 15px;
+}
+
+/* --- Modal Header + Effects --- */
+.modal-header {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Modal Content */
+.modal-content {
+  border-radius: 20px;
+  animation: fadeInUp 0.5s ease;
+  border: none;
+}
+
+/* Form Inputs Enhancement */
+.modal-body input,
+.modal-body textarea,
+.modal-body select {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus,
+.modal-body select:focus {
+  border-color: #4a00e0;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+
+/* --- List Groups / Info Panels --- */
+.list-group-item {
+  border-left: 6px solid #17a2b8;
+  background: #fff;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  background-color: #e3f2fd;
+  transform: scale(1.01);
+}
+
+/* --- Info Titles and Labels --- */
+.card h5,
+.accordion-body h5 {
+  color: #007bff;
+  font-weight: 700;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* --- Applied Jobs Button Position --- */
+.btn.position-absolute {
+  border: 2px solid #007bff;
+  background: white;
+  color: #007bff;
+  font-weight: 600;
+}
+
+.btn.position-absolute:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* --- Improve Section Spacing --- */
+.accordion-item {
+  margin-bottom: 1rem;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+/* --- Shadow for Form Cards --- */
+.card.p-4 {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+

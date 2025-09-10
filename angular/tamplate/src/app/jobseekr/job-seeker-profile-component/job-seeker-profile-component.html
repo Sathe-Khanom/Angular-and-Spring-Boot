@@ -2,22 +2,24 @@
 
 <div *ngIf="jobSeeker" class="container py-5 ">
   <div class="card p-4 card card-soft-mint " style="background: #f4f9fd; border-radius: 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-  <div class="row align-items-center">
-    <div class="col-md-3 text-center">
+
+    <div class="text-center">
       <img [src]="'http://localhost:8085/images/jobSeeker/'+jobSeeker.photo" alt="Profile Image" height="150"
         width="150" class="profile-img mb-3">
       <h4 class="mb-0">{{ jobSeeker.name }}</h4>
       <p class="text-muted">{{ jobSeeker.gender }}</p>
     </div>
-    <div class="col-md-9">
-      <div class="row mb-2">
-        <div class="col-md-6"><strong>Email:</strong> {{ jobSeeker.email }}</div>
-        <div class="col-md-6"><strong>Phone:</strong> {{ jobSeeker.phone }}</div>
-        <div class="col-md-6"><strong>Address:</strong> {{ jobSeeker.address }}</div>
-        <div class="col-md-6"><strong>Date of Birth:</strong>{{ jobSeeker.dateOfBirth }}</div>
+
+   
+    
+      <div class="text-center">
+        <div class=><strong>Email:</strong> {{ jobSeeker.email }}</div>
+        <div class=><strong>Phone:</strong> {{ jobSeeker.phone }}</div>
+        <div class=><strong>Address:</strong> {{ jobSeeker.address }}</div>
+        <div class=><strong>Date of Birth:</strong>{{ jobSeeker.dateOfBirth }}</div>
       </div>
-    </div>
-  </div>
+    
+
 
   <button type="button" class="btn btn-sm btn-outline-primary position-absolute top-0 end-0 m-2" routerLink="/apply">
   Applied Jobs
