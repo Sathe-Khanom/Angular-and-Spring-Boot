@@ -118,4 +118,8 @@ export class AuthService {
    isJobSeeker(): boolean {
     return this.getUserRole() === 'JOBSEEKER';
   }
+
+
+
+  
 }

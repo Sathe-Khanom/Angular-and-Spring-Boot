@@ -16,6 +16,8 @@ import { Refference } from '../../model/refference.model';
   styleUrls: ['./cv-download.component.css']
 })
 export class CvDownloadComponent implements AfterViewInit {
+
+  
   @Input() jobSeeker!: JobSeeker;
   @Input() educations: Education[] = [];
   @Input() experiences: Experience[] = [];

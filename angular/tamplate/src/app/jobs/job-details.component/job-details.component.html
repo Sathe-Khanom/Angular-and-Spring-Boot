@@ -1,6 +1,6 @@
 <div class="container mt-4" *ngIf="job; else loading">
   <h2>{{ job.title }}</h2>
-  <p><strong>Location:</strong> {{ job.location }}</p>
+  <p><strong>Location:</strong> {{ job.locationName }}</p>
   <p><strong>Salary:</strong> {{ job.salary | currency }}</p>
   <p><strong>Type:</strong> {{ job.jobType }}</p>
   <p><strong>Description:</strong></p>
@@ -26,7 +26,7 @@
 
   <!-- Apply Button -->
   <div class="text-center mt-3">
-    <button class="btn btn-success btn-lg" (click)="applyJob(job.id, job.employerId)">Apply Now</button>
+    <button class="btn btn-success btn-lg" (click)="applyJob(job.id, job.employerId!)">Apply Now</button>
   </div>
 </div>
 

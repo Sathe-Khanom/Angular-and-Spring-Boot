@@ -30,7 +30,7 @@
           <p class="mb-1"><strong>Category:</strong> {{ job.categoryName }}</p>
           <p class="mb-1"><strong>Location:</strong> {{ job.locationName}}</p>
           <div class="mt-auto">
-            <button class="btn btn-primary btn-sm w-100">Apply</button>
+            <button class="btn btn-primary btn-sm w-100" (click)="applyJob(job.id, job.employerId!)">Apply</button>
           </div>
         </div>
       </div>

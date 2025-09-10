@@ -19,34 +19,38 @@ import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-
 import { EmployerJobApplications } from './employer/employer-job-applications/employer-job-applications';
 import { CvDownloadComponent } from './cv/cv-download.component/cv-download.component';
 import { CompanyComponent } from './employer/company/company.component/company.component';
+import { AuthGuard } from './gurd/auth-guard-guard';
 
 const routes: Routes = [
-  {path: 'allUser' , component:AlluserComponent},
-  {path: 'addseeker' , component:AddjobseekerComponent},
-  {path: 'jobsekpro' , component:JobSeekerProfileComponent},
-  {path: 'login' , component:LoginComponent},
-  {path: 'addemp', component:AddEmployerComponent},
-  {path: 'emprofile', component: EmployerProfileComponent},
+  { path: 'allUser', component: AlluserComponent },
+  { path: 'addseeker', component: AddjobseekerComponent },
+  { path: 'jobsekpro', component: JobSeekerProfileComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'addemp', component: AddEmployerComponent },
+  { path: 'emprofile', component: EmployerProfileComponent },
   // {path: 'addjob', component: AddJobComponent,  canActivate: [RoleGuard], data: { roles: [Role.EMPLOYER] } },
-  {path: 'addjob', component: AddJobComponent,  },
-  {path: 'jobdetails', component: JobDetailsComponent},
-  {path: 'alljobs', component: AllJobs},
+  { path: 'addjob', component: AddJobComponent, },
+  { path: 'jobdetails', component: JobDetailsComponent },
+  { path: 'alljobs', component: AllJobs },
   { path: 'jobs/:id', component: JobDetailsComponent },
-  {path: 'dash', component: Dashboard},
-  {path: '' , component: HomeComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'location', component: Addlocation},
-    {path: 'category', component: AddCategoryComponent},
-    {path: 'myjob', component: MyjobsComponent},
-    {path: 'apply', component: AppliedJobsComponent},
-    {path: 'application/:id', component: EmployerJobApplications},
-    {path: 'cv', component: CvDownloadComponent},
-    {path: 'company', component: CompanyComponent},
+  { path: 'dash', component: Dashboard },
+  { path: '', component: HomeComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'location', component: Addlocation },
+  { path: 'category', component: AddCategoryComponent },
+  { path: 'myjob', component: MyjobsComponent },
+  { path: 'apply', component: AppliedJobsComponent,  canActivate: [AuthGuard],
+    data: { roles: ['JOBSEEKER'] } },
 
 
-  
+  { path: 'application/:id', component: EmployerJobApplications },
+  { path: 'cv', component: CvDownloadComponent },
+  { path: 'company', component: CompanyComponent },
+
+
+
   { path: '**', redirectTo: '' } // fallback
- 
+
 
 
 

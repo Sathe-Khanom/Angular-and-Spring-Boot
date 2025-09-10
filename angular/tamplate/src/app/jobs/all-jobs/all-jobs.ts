@@ -37,7 +37,7 @@ ngOnInit(): void {
 
       // Optional: Show first job's location
       if (this.jobs.length > 0) {
-        console.log("First job's location:", this.jobs[0].location);
+        console.log("First job's location:", this.jobs[0].locationName);
       }
 
       this.cd.markForCheck();

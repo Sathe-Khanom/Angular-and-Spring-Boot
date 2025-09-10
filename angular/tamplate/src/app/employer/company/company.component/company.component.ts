@@ -3,6 +3,7 @@ import { Employer } from '../../../model/employer.model';
 import { EmployerService } from '../../../service/employer.service';
 import { JobDTO } from '../../../model/JobDTO';
 import { JobService } from '../../../service/job.service';
+import { ApplyService } from '../../../service/apply.service';
 
 @Component({
   selector: 'app-company.component',
@@ -20,7 +21,8 @@ export class CompanyComponent {
   constructor(
     private employerService: EmployerService, 
     private jobService: JobService, 
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private applyService: ApplyService
   ) { }
 
   ngOnInit(): void {
@@ -48,6 +50,26 @@ onCompanyChange(): void {
   }
 }
 
+
+applyJob(jobId: number, employerId: number) {
+    // Prepare payload for API
+    const applyPayload = {
+      job: { id: jobId },
+      employer: { id: employerId }
+    };
+
+    // Call service
+    this.applyService.applyForJob(applyPayload).subscribe({
+      next: (res) => {
+        console.log('Application successful:', res);
+        alert('You have successfully applied for this job!');
+      },
+      error: (err) => {
+        console.error('Application failed:', err);
+        alert('Failed to apply. Please login first.');
+      }
+    });
+  }
 
 
 }
