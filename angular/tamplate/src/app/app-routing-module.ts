@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { mapToCanActivate, RouterModule, Routes } from '@angular/router';
 import { AlluserComponent } from './user/alluser.component/alluser.component';
 import { AddjobseekerComponent } from './jobseekr/addjobseeker.component/addjobseeker.component';
 import { JobSeekerProfileComponent } from './jobseekr/job-seeker-profile-component/job-seeker-profile-component';
@@ -22,28 +22,35 @@ import { CompanyComponent } from './employer/company/company.component/company.c
 import { AuthGuard } from './gurd/auth-guard-guard';
 
 const routes: Routes = [
-  { path: 'allUser', component: AlluserComponent },
+  { path: 'allUser', component: AlluserComponent , canActivate: [AuthGuard],
+    data: { roles: ['ADMIN'] }}, 
   { path: 'addseeker', component: AddjobseekerComponent },
-  { path: 'jobsekpro', component: JobSeekerProfileComponent },
+  { path: 'jobsekpro', component: JobSeekerProfileComponent , canActivate: [AuthGuard],
+    data: { roles: ['JOBSEEKER','ADMIN'] }},
   { path: 'login', component: LoginComponent },
   { path: 'addemp', component: AddEmployerComponent },
-  { path: 'emprofile', component: EmployerProfileComponent },
+  { path: 'emprofile', component: EmployerProfileComponent , canActivate: [AuthGuard],
+    data: { roles: ['EMPLOYER','ADMIN'] }},
   // {path: 'addjob', component: AddJobComponent,  canActivate: [RoleGuard], data: { roles: [Role.EMPLOYER] } },
-  { path: 'addjob', component: AddJobComponent, },
+  { path: 'addjob', component: AddJobComponent, canActivate: [AuthGuard],
+    data: { roles: ['EMPLOYER','ADMIN'] } },
   { path: 'jobdetails', component: JobDetailsComponent },
   { path: 'alljobs', component: AllJobs },
   { path: 'jobs/:id', component: JobDetailsComponent },
-  { path: 'dash', component: Dashboard },
+  { path: 'dash', component: Dashboard , canActivate: [AuthGuard],
+    data: { roles: ['ADMIN'] }},
   { path: '', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'location', component: Addlocation },
-  { path: 'category', component: AddCategoryComponent },
-  { path: 'myjob', component: MyjobsComponent },
+  { path: 'location', component: Addlocation,  canActivate: [AuthGuard],
+    data: { roles: ['ADMIN'] } },
+  { path: 'category', component: AddCategoryComponent ,  canActivate: [AuthGuard],
+    data: { roles: ['ADMIN'] } },
+  { path: 'myjob', component: MyjobsComponent ,  canActivate: [AuthGuard],
+    data: { roles: ['EMPLOYER','ADMIN'] }},
   { path: 'apply', component: AppliedJobsComponent,  canActivate: [AuthGuard],
-    data: { roles: ['JOBSEEKER'] } },
-
-
-  { path: 'application/:id', component: EmployerJobApplications },
+    data: { roles: ['JOBSEEKER','ADMIN'] } },
+  { path: 'application/:id', component: EmployerJobApplications, canActivate: [AuthGuard],
+    data: { roles: ['EMPLOYER','ADMIN'] } },
   { path: 'cv', component: CvDownloadComponent },
   { path: 'company', component: CompanyComponent },
 
