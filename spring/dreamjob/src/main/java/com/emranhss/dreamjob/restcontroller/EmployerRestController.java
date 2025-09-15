@@ -83,6 +83,24 @@ public class EmployerRestController {
 
     }
 
+    @GetMapping("allemp")
+    public ResponseEntity<List<Employer>> getAllEmployers() {
+        List<Employer> employers = employerService.getAll();
+        return ResponseEntity.ok(employers);
+    }
+
+    // 🔹 Delete employer by ID
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<String> deleteEmployer(@PathVariable Long id) {
+        Optional<Employer> employer = employerService.getById(id);
+        if (employer.isPresent()) {
+            employerService.delete(id);
+            return ResponseEntity.ok("Employer deleted successfully.");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 
 }

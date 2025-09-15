@@ -4,6 +4,8 @@ import com.emranhss.dreamjob.entity.ContactMessage;
 import com.emranhss.dreamjob.repository.ContactMessageRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ContactMessageService {
     private final ContactMessageRepository repo;
@@ -16,4 +18,7 @@ public class ContactMessageService {
     }
 
 
+    public List<ContactMessage> getAllMessages() {
+        return repo.findAll();
+    }
 }

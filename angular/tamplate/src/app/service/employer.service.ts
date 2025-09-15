@@ -46,9 +46,13 @@ export class EmployerService {
 
    getAllEmployers(): Observable<Employer[]> {
     return this.http.get<Employer[]>(this.baseUrl+"all");
-  }
+  }  
 
-  
+
+  // Delete employer by ID
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}${id}`, { responseType: 'text' });
+  }
 
 
 }

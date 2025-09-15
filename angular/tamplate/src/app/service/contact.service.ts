@@ -20,4 +20,7 @@ private apiUrl = environment.apiBaseUrl + '/contact/';
     return this.http.get<ContactMessage[]>(this.apiUrl);
   }
 
+
+
+
 }

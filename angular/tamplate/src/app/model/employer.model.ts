@@ -7,7 +7,7 @@ export interface Employer {
     password        :  string;
     phoneNumber     :  string;
     address         :  string;
-    website         :  string;
+    companyWebsite  :  string;
     industryType    :  string;
     logo            :  string;
 

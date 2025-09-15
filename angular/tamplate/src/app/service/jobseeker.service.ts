@@ -77,4 +77,9 @@ export class JobseekerService {
   }
 
 
+  
+     getAllJobSeekers(): Observable<JobSeeker[]> {
+      return this.http.get<JobSeeker[]>(this.baseUrl+"all");
+    }  
+
 }

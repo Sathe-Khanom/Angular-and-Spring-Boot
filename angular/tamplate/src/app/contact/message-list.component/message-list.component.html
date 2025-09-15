@@ -1,0 +1,42 @@
+<div class="container">
+
+<div *ngIf="!isLoading && messages.length > 0" class="row g-4  mt-2 mb-3"> <!-- Added mb-5 here -->
+
+<div class="container mt-4">
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="alert alert-info text-center">
+    Loading messages...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="alert alert-danger text-center">
+    {{ error }}
+  </div>
+
+  <!-- Empty -->
+  <div *ngIf="!isLoading && messages.length === 0" class="alert alert-warning text-center">
+    No messages found.
+  </div>
+
+  <!-- Message Grid -->
+  <div *ngIf="!isLoading && messages.length > 0" class="row g-4">
+    <div *ngFor="let msg of messages" class="col-sm-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow border-0 message-card">
+        <div class="card-header bg-primary text-white">
+          <strong>{{ msg.name }}</strong>
+          <div class="small">{{ msg.email }}</div>
+        </div>
+        <div class="card-body bg-light">
+          <p class="card-text">
+            <i class="bi bi-chat-left-text me-2 text-secondary"></i>
+            {{ msg.message }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>

@@ -91,5 +91,10 @@ public class JobSeekerRestController {
         return jobSeekerService.getJobSeekerFullData(id);
     }
 
+    @GetMapping("allseeker")
+    public ResponseEntity<List<JobSeeker>> getAllJobSeeker() {
+        List<JobSeeker> jobSeekerList = jobSeekerService.getAll();
+        return ResponseEntity.ok(jobSeekerList);
 
+    }
 }

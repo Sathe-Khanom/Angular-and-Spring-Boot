@@ -20,6 +20,9 @@ import { EmployerJobApplications } from './employer/employer-job-applications/em
 import { CvDownloadComponent } from './cv/cv-download.component/cv-download.component';
 import { CompanyComponent } from './employer/company/company.component/company.component';
 import { AuthGuard } from './gurd/auth-guard-guard';
+import { MessageListComponent } from './contact/message-list.component/message-list.component';
+import { AllJobseekerComponent } from './jobseekr/all-jobseeker.component/all-jobseeker.component';
+import { AllEmployerComponent } from './employer/all-employer.component/all-employer.component';
 
 const routes: Routes = [
   { path: 'allUser', component: AlluserComponent , canActivate: [AuthGuard],
@@ -53,6 +56,9 @@ const routes: Routes = [
     data: { roles: ['EMPLOYER','ADMIN'] } },
   { path: 'cv', component: CvDownloadComponent },
   { path: 'company', component: CompanyComponent },
+  {path: 'message', component: MessageListComponent},
+  {path: 'allseeker', component: AllJobseekerComponent},
+  {path: 'allemp', component: AllEmployerComponent},
 
 
 

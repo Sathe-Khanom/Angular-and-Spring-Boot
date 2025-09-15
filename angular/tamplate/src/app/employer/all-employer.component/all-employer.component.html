@@ -1,0 +1,33 @@
+<h2 class="text-center my-4 text-primary">All Employers</h2>
+
+<div class="container">
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Company Name</th>
+        <th>Email</th>
+        <th>Website</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employer of employers">
+        <td>{{ employer.id }}</td>
+        <td>{{ employer.companyName }}</td>
+        <td>{{ employer.email }}</td>
+        <td>{{ employer.companyWebsite }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteEmployer(employer.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Show message if no employers -->
+  <div *ngIf="!employers || employers.length === 0" class="alert alert-warning text-center mt-3">
+    No employers found.
+  </div>
+</div>

@@ -28,6 +28,9 @@ import { AppliedJobsComponent } from './jobseekr/applied-jobs.component/applied-
 import { EmployerJobApplications } from './employer/employer-job-applications/employer-job-applications';
 import { CvDownloadComponent } from './cv/cv-download.component/cv-download.component';
 import { CompanyComponent } from './employer/company/company.component/company.component';
+import { MessageListComponent } from './contact/message-list.component/message-list.component';
+import { AllEmployerComponent } from './employer/all-employer.component/all-employer.component';
+import { AllJobseekerComponent } from './jobseekr/all-jobseeker.component/all-jobseeker.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { CompanyComponent } from './employer/company/company.component/company.c
          AppliedJobsComponent,
          EmployerJobApplications,
          CvDownloadComponent,
-         CompanyComponent
+         CompanyComponent,
+         MessageListComponent,
+         AllEmployerComponent,
+         AllJobseekerComponent
   ],
   imports: [
     BrowserModule,
