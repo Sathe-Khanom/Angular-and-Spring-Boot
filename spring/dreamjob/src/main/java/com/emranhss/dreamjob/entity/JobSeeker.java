@@ -39,7 +39,7 @@ public class JobSeeker {
     @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Experience> experiences;
 
-@OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Hobby> hobbies;
 
 
@@ -55,6 +55,9 @@ public class JobSeeker {
 
     @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Training> trainings;
+
+    @OneToMany(mappedBy = "jobSeeker", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Summery> summery;
 
 
 
@@ -213,5 +216,13 @@ public class JobSeeker {
 
     public void setTrainings(List<Training> trainings) {
         this.trainings = trainings;
+    }
+
+    public List<Summery> getSummery() {
+        return summery;
+    }
+
+    public void setSummery(List<Summery> summery) {
+        this.summery = summery;
     }
 }

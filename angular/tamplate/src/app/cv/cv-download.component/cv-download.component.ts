@@ -8,6 +8,7 @@ import { Extracurricular } from '../../model/extracurricular.model';
 import { Language } from '../../model/language.model';
 import { Hobby } from '../../model/hobby.model';
 import { Refference } from '../../model/refference.model';
+import { Summery } from '../../model/summery.model';
 
 @Component({
   selector: 'app-cv-download',
@@ -27,6 +28,7 @@ export class CvDownloadComponent implements AfterViewInit {
   @Input() languages: Language[] = [];
   @Input() hobbies: Hobby[] = [];
   @Input() references: Refference[] = [];
+  @Input() summery: Summery[] = [];
 
   @ViewChild('cvContent') cvContent!: ElementRef;
 

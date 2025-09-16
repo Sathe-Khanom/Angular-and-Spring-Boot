@@ -74,6 +74,7 @@ public class SecurityConfig {
                                 "/api/contact/**",
                                 "/api/cv/view/by-user/**"
 
+
                         ).permitAll()
                         .requestMatchers("/api/user/all",
                                 "/api/jobseeker/profile",
@@ -95,8 +96,9 @@ public class SecurityConfig {
                                 "/api/training/all",
                                 "/api/applications/apply",
                                 "/api/applications/my",
-                                "/images/**"
-                        ).hasRole("JOBSEEKER")
+                                "/images/**",
+                                "/api/summery/**"
+                                ).hasRole("JOBSEEKER")
                         .requestMatchers("/api/employer/profile",
                                 "/images/**",
                                 "/api/jobs/**",

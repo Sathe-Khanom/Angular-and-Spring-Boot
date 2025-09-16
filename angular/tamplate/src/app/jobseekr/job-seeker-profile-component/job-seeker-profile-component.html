@@ -29,6 +29,7 @@
 <app-cv-download
   [jobSeeker]="jobSeeker"
   [educations]="educations"
+  [summery]="summery"
   [experiences]="experiences"
   [skills]="skills"
   [trainings]="trainings"
@@ -44,7 +45,9 @@
   <!-- <button class="btn btn-outline-danger mt-3 mb-3" (click)="generateCV()">Download CV as PDF</button> -->
 
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+
+  <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Add Education
   </button>
 
@@ -72,6 +75,10 @@
 
   <button class="btn btn-outline-dark mt-3" data-bs-toggle="modal" data-bs-target="#hobbyModal">
     Add Hobby
+  </button>
+
+    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#summaryModal">
+    Add Summery
   </button>
 </div>
 
@@ -578,3 +585,90 @@
   </div>
 
                   <!-- hobby show close -->
+
+                   <!-- Add summery Modal -->
+<div class="modal fade" id="summaryModal" tabindex="-1" aria-labelledby="summaryModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="experienceModalLabel">Add New Summery</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="addSummery()">
+          <div class="mb-3">
+            <label>Father's Name</label>
+            <input type="text" [(ngModel)]="newSummery.fatherName" name="fatherName" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Mother's Name</label>
+            <input type="text" [(ngModel)]="newSummery.motherName" name="motherName" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Nationality</label>
+            <input type="text" [(ngModel)]="newSummery.nationality" name="nationality" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Religion</label>
+            <input type="text" [(ngModel)]="newSummery.religion" name="religion" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label>Blood Group</label>
+            <input type="text" [(ngModel)]="newSummery.bloodGroup" name="bloodGroup" class="form-control">
+          </div>
+          <div class="mb-3">
+             <label>Height</label>
+            <input type="text" [(ngModel)]="newSummery.height" name="height" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label> Weight</label>
+            <input type="text" [(ngModel)]="newSummery.height" name="height" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label>NID Number</label>
+            <input type="text" [(ngModel)]="newSummery.nid" name="nid" class="form-control required">
+          </div>
+          <div class="mb-3">
+            <label>Carrier Objective</label>
+            <textarea [(ngModel)]="newSummery.description" name="description" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Summery</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal close -->
+
+<!-- summery show -->
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+        aria-expanded="true" aria-controls="collapseOne">
+        Summery
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+
+        <div *ngIf="summery.length > 0" class="card p-4 mt-4">
+          <h5>Summery</h5>
+          <div *ngFor="let sum of summery" class="border-bottom py-2">
+            <div><strong>Father's Name:</strong> {{ sum.fatherName }}</div>
+            <div><strong>Mother's Name:</strong> {{ sum.motherName}}</div>
+            <div><strong>Nationality:</strong> {{ sum.nationality }}</div>
+            <div><strong>Religion:</strong> {{ sum.religion }}</div>
+            <div><strong>Blood Group:</strong> {{ sum.bloodGroup }}</div>
+            <div><strong>Height:</strong> {{ sum.height }}</div>
+            <div><strong>Weight:</strong> {{ sum.weight }}</div>
+            <div><strong>NID Number:</strong> {{ sum.nid }}</div>
+            <div><strong>Carrier Objective:</strong> {{ sum.description }}</div>
+            <button class="btn btn-sm btn-danger" (click)="deleteSummery(sum.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- summery show close-->
