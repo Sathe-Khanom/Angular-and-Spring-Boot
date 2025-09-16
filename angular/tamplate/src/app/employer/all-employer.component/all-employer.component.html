@@ -7,8 +7,7 @@
         <th>ID</th>
         <th>Company Name</th>
         <th>Email</th>
-        <th>Website</th>
-        <th>Action</th>
+        <th>Website</th>        
       </tr>
     </thead>
     <tbody>
@@ -17,11 +16,7 @@
         <td>{{ employer.companyName }}</td>
         <td>{{ employer.email }}</td>
         <td>{{ employer.companyWebsite }}</td>
-        <td>
-          <button class="btn btn-danger btn-sm" (click)="deleteEmployer(employer.id)">
-            Delete
-          </button>
-        </td>
+       
       </tr>
     </tbody>
   </table>
