@@ -37,6 +37,7 @@ export class JobSeekerProfileComponent implements OnInit {
   newEducation = {
     level: '',
     institute: '',
+    board: '',
     result: '',
     year: ''
   };
@@ -444,7 +445,7 @@ export class JobSeekerProfileComponent implements OnInit {
           this.jobSeeker.educations = [];
         }
         this.jobSeeker.educations.push(addedEdu);
-        this.newEducation = { level: '', institute: '', result: '', year: '' };
+        this.newEducation = { level: '', institute: '', board:'', result: '', year: '' };
 
 
       },

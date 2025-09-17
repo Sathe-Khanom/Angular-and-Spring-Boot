@@ -18,6 +18,8 @@ public class Summery {
     private String height;
     private String weight;
     private String nid;
+
+    @Column(length = 2000)
     private String description;
 
 

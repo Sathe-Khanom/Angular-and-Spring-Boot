@@ -17,27 +17,18 @@
     </div>
   </div>
 
-
-  <!-- Personal Info -->
-  <div class="cv-section avoid-break">
-    <h4>Personal Information</h4>    
+<!-- Work Experience -->
+  <div *ngIf="experiences.length > 0" class="cv-section avoid-break">
+    <h4>Work Experience</h4>
+    <ul>
+      <li *ngFor="let exp of experiences">
+        <strong>{{ exp.position }}</strong> at {{ exp.company }}<br />
+        <small>{{ exp.fromDate }} to {{ exp.toDate || 'Present' }}</small><br />
+        <p>{{ exp.description }}</p>
+      </li>
+    </ul>
   </div>
-
-  <!-- Summary -->
-  <div *ngIf="summery.length > 0" class="cv-section avoid-break">
-    <div *ngFor="let s of summery">
-      <p><strong>Father's Name:</strong> {{ s.fatherName }}</p>
-      <p><strong>Mother's Name:</strong> {{ s.motherName }}</p>
-      <p><strong>Date of Birth:</strong> {{ jobSeeker?.dateOfBirth | date: 'mediumDate' }}</p>
-      <p><strong>Gender:</strong> {{ jobSeeker?.gender }}</p>
-      <p><strong>Nationality:</strong> {{ s.nationality }}</p>
-      <p><strong>Religion:</strong> {{ s.religion }}</p>       
-      <p><strong>Blood Group:</strong> {{ s.bloodGroup }}</p>
-      <p><strong>Height:</strong> {{ s.height }}</p>
-      <p><strong>Weight:</strong> {{ s.weight }}</p>
-      <p><strong>National ID (NID):</strong> {{ s.nid }}</p>     
-    </div>
-  </div>
+ 
 
   <!-- Education -->
   <div *ngIf="educations.length > 0" class="cv-section avoid-break">
@@ -45,29 +36,8 @@
     <ul>
       <li *ngFor="let edu of educations">
         <strong>{{ edu.level }}</strong> - {{ edu.institute }} ({{ edu.year }})<br />
-        <small>Result: {{ edu.result }}</small>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Work Experience -->
-  <div *ngIf="experiences.length > 0" class="cv-section avoid-break">
-    <h4>Work Experience</h4>
-    <ul>
-      <li *ngFor="let exp of experiences">
-        <strong>{{ exp.position }}</strong> at {{ exp.company }}<br />
-        <small>{{ exp.fromDate }} to {{ exp.toDate || 'Present' }}</small><br />
-        <p><strong>Responsibilities:</strong>{{ exp.description }}</p>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Skills -->
-  <div *ngIf="skills.length > 0" class="cv-section avoid-break">
-    <h4>Skills</h4>
-    <ul>
-      <li *ngFor="let skill of skills">
-        {{ skill.name }} - {{ skill.level }}
+        <strong>Result: </strong>{{ edu.result }} | {{ edu.board }}
+        
       </li>
     </ul>
   </div>
@@ -84,6 +54,20 @@
     </ul>
   </div>
 
+  
+
+  <!-- Skills -->
+  <div *ngIf="skills.length > 0" class="cv-section avoid-break">
+    <h4>Skills</h4>
+    <ul>
+      <li *ngFor="let skill of skills">
+        {{ skill.name }} - {{ skill.level }}
+      </li>
+    </ul>
+  </div>
+
+  
+
   <!-- Extracurricular Activities -->
   <div *ngIf="extracurriculars.length > 0" class="cv-section avoid-break">
     <h4>Extracurricular Activities</h4>
@@ -92,6 +76,14 @@
         <strong>{{ ex.title }}</strong> - {{ ex.role }}<br />
         <p>{{ ex.description }}</p>
       </li>
+    </ul>
+  </div>
+
+   <!-- Hobbies -->
+  <div *ngIf="hobbies.length > 0" class="cv-section avoid-break">
+    <h4>Hobbies</h4>
+    <ul>
+      <li *ngFor="let hobby of hobbies">{{ hobby.name }}</li>
     </ul>
   </div>
 
@@ -105,13 +97,27 @@
     </ul>
   </div>
 
-  <!-- Hobbies -->
-  <div *ngIf="hobbies.length > 0" class="cv-section avoid-break">
-    <h4>Hobbies</h4>
-    <ul>
-      <li *ngFor="let hobby of hobbies">{{ hobby.name }}</li>
-    </ul>
+   <!-- Personal Info -->
+  <div class="cv-section avoid-break">
+    <h4>Personal Information</h4> 
+ 
+
+  <!-- Summary -->
+  <div *ngIf="summery.length > 0" class="cv-section avoid-break">
+    <div *ngFor="let s of summery">
+      <p><strong>Father's Name:</strong> {{ s.fatherName }}</p>
+      <p><strong>Mother's Name:</strong> {{ s.motherName }}</p>
+      <p><strong>Date of Birth:</strong> {{ jobSeeker?.dateOfBirth | date: 'mediumDate' }}</p>
+      <p><strong>Gender:</strong> {{ jobSeeker?.gender }}</p>
+      <p><strong>Nationality:</strong> {{ s.nationality }}</p>
+      <p><strong>Religion:</strong> {{ s.religion }}</p>       
+      <p><strong>Blood Group:</strong> {{ s.bloodGroup }}</p>
+      <p><strong>Height:</strong> {{ s.height }}</p>
+      <p><strong>Weight:</strong> {{ s.weight }}</p>
+      <p><strong>National ID (NID):</strong> {{ s.nid }}</p>     
+    </div>
   </div>
+   </div>
 
   <!-- References -->
   <div *ngIf="references.length > 0" class="cv-section avoid-break">
