@@ -111,7 +111,8 @@
                 <strong>Location:</strong> {{ job.locationName }}<br>
                 <strong>Salary:</strong> {{ job.salary | currency }}<br>
                 <strong>Type:</strong> {{ job.jobType }}<br>
-                <strong>Posted:</strong> {{ job.postedDate | date:'mediumDate' }}
+                <strong>Posted:</strong> {{ job.postedDate | date:'mediumDate' }}<br>
+                 <strong>Deadline:</strong> {{ job.endDate | date:'mediumDate' }}
               </p>
               <hr>
               <h6>Employer Info</h6>

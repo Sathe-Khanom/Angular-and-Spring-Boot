@@ -25,6 +25,7 @@ public class JobSeekerFullDTO {
     private List<Language> languages;
     private List<Hobby> hobbies;
     private List<Refference> references;
+    private List<Summery> summeries;
 
     // constructor from JobSeeker entity
     public JobSeekerFullDTO(JobSeeker js) {
@@ -45,6 +46,7 @@ public class JobSeekerFullDTO {
         this.extracurriculars = js.getExtracurriculars();
         this.languages = js.getLanguages();
         this.references = js.getRefferences();
+        this.summeries = js.getSummery();
 
 
     }
@@ -175,5 +177,13 @@ public class JobSeekerFullDTO {
 
     public void setReferences(List<Refference> references) {
         this.references = references;
+    }
+
+    public List<Summery> getSummeries() {
+        return summeries;
+    }
+
+    public void setSummeries(List<Summery> summeries) {
+        this.summeries = summeries;
     }
 }

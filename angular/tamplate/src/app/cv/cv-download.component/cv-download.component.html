@@ -10,8 +10,8 @@
     <p>{{ jobSeeker?.address }}</p>
   </div>
 
-  <div *ngIf="summery.length > 0" class="cv-section avoid-break">
-    <div *ngFor="let s of summery">
+  <div *ngIf="summeries.length > 0" class="cv-section avoid-break">
+    <div *ngFor="let s of summeries">
       <h4>Objective</h4>
       {{ s.description}}
     </div>
@@ -103,8 +103,8 @@
  
 
   <!-- Summary -->
-  <div *ngIf="summery.length > 0" class="cv-section avoid-break">
-    <div *ngFor="let s of summery">
+  <div *ngIf="summeries.length > 0" class="cv-section avoid-break">
+    <div *ngFor="let s of summeries">
       <p><strong>Father's Name:</strong> {{ s.fatherName }}</p>
       <p><strong>Mother's Name:</strong> {{ s.motherName }}</p>
       <p><strong>Date of Birth:</strong> {{ jobSeeker?.dateOfBirth | date: 'mediumDate' }}</p>

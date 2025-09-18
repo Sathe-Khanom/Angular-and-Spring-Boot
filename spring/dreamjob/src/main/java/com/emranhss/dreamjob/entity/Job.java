@@ -27,6 +27,20 @@ public class Job {
 
     private Date postedDate;
 
+    private Date endDate;
+
+    @Column(length = 2000)
+    private String keyresponsibility;
+
+    @Column(length = 2000)
+    private String edurequirement;
+
+    @Column(length = 2000)
+    private String exprequirement;
+
+    @Column(length = 2000)
+    private String benefits;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employer_id", nullable = false)
     private Employer employer;
@@ -45,16 +59,18 @@ public class Job {
     public Job() {
     }
 
-    public Job(Long id, String title, String description, Double salary, String jobType, Date postedDate, Employer employer, Category category, Location location) {
+    public Job(Long id, String title, String description, Double salary, String jobType, Date postedDate, Date endDate, String keyresponsibility, String edurequirement, String exprequirement, String benefits) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.salary = salary;
         this.jobType = jobType;
         this.postedDate = postedDate;
-        this.employer = employer;
-        this.category = category;
-        this.location = location;
+        this.endDate = endDate;
+        this.keyresponsibility = keyresponsibility;
+        this.edurequirement = edurequirement;
+        this.exprequirement = exprequirement;
+        this.benefits = benefits;
     }
 
     public Long getId() {
@@ -103,6 +119,46 @@ public class Job {
 
     public void setPostedDate(Date postedDate) {
         this.postedDate = postedDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getKeyresponsibility() {
+        return keyresponsibility;
+    }
+
+    public void setKeyresponsibility(String keyresponsibility) {
+        this.keyresponsibility = keyresponsibility;
+    }
+
+    public String getEdurequirement() {
+        return edurequirement;
+    }
+
+    public void setEdurequirement(String edurequirement) {
+        this.edurequirement = edurequirement;
+    }
+
+    public String getExprequirement() {
+        return exprequirement;
+    }
+
+    public void setExprequirement(String exprequirement) {
+        this.exprequirement = exprequirement;
+    }
+
+    public String getBenefits() {
+        return benefits;
+    }
+
+    public void setBenefits(String benefits) {
+        this.benefits = benefits;
     }
 
     public Employer getEmployer() {

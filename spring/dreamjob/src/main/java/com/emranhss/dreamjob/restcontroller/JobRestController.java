@@ -43,7 +43,7 @@ public class JobRestController {
 
 
     // Delete a job by ID
-    @DeleteMapping("/{jobId}")
+    @DeleteMapping("{jobId}")
     public ResponseEntity<Void> deleteJob(@PathVariable Long jobId) {
         jobService.delete(jobId);
         return ResponseEntity.noContent().build();

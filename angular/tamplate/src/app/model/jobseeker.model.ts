@@ -5,6 +5,7 @@ import { Hobby } from "./hobby.model";
 import { Language } from "./language.model";
 import { Refference } from "./refference.model";
 import { Skill } from "./skill.model";
+import { Summery } from "./summery.model";
 import { Training } from "./training.model";
 
 export interface JobSeeker{
@@ -27,6 +28,7 @@ educations: Education[];
   extracurricular: Extracurricular[];
   references: Refference[];
   trainings: Training[];
+  summeries: Summery[];
 
 
 

@@ -5,7 +5,11 @@ export interface JobDTO {
   salary: number;
   jobType: string;
   postedDate: string;
-
+  endDate: string;
+  keyresponsibility: string;
+  edurequirement: string;
+  exprequirement: string;
+  benefits: string;
   // Category info
   categoryId?: number;
   categoryName?: string;

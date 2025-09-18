@@ -14,6 +14,7 @@ import { Refference } from '../../model/refference.model';
 import { CvDownloadComponent } from '../../cv/cv-download.component/cv-download.component';
 import { JobseekerService } from '../../service/jobseeker.service';
 import { JobSeekerDTO } from '../../model/jobseekerDto';
+import { Summery } from '../../model/summery.model';
 
 @Component({
   selector: 'app-employer-job-applications',
@@ -32,6 +33,7 @@ export class EmployerJobApplications {
   @Input() languages: Language[] = [];
   @Input() hobbies: Hobby[] = [];
   @Input() references: Refference[] = [];
+  @Input() summery: Summery[] = [];
 
 
 
@@ -101,7 +103,8 @@ export class EmployerJobApplications {
             extracurricular: jobSeeker.extracurriculars ?? [],
             languages: jobSeeker.languages ?? [],
             hobbies: jobSeeker.hobbies ?? [],
-            references: jobSeeker.references ?? []
+            references: jobSeeker.references ?? [],
+            summeries: jobSeeker.summeries ?? []
           };
 
           setTimeout(() => {
@@ -114,6 +117,7 @@ export class EmployerJobApplications {
             this.cvDownloader.languages = fullJobSeeker.languages;
             this.cvDownloader.hobbies = fullJobSeeker.hobbies;
             this.cvDownloader.references = fullJobSeeker.references;
+            this.cvDownloader.summeries = fullJobSeeker.summeries;
 
             this.cd.detectChanges();
             this.cvDownloader.downloadCV();

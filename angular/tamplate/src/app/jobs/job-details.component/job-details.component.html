@@ -3,18 +3,34 @@
   <p><strong>Location:</strong> {{ job.locationName }}</p>
   <p><strong>Salary:</strong> {{ job.salary | currency }}</p>
   <p><strong>Type:</strong> {{ job.jobType }}</p>
-  <p><strong>Description:</strong></p>
+  <p><strong>Job Purpose:</strong></p>
   <p>{{ job.description }}</p>
-  
+  <p><strong>Key Responsibilities:</strong></p>
+
+
+  <ul>
+    <li *ngFor="let responsibility of keyResponsibilities">
+      {{ responsibility }}
+    </li>
+  </ul>
+
+
+
+
+  <p><strong>Education Requirements:</strong></p>
+  <p>{{ job.edurequirement }}</p>
+  <p><strong>Experience Requirements:</strong></p>
+  <p>{{ job.exprequirement }}</p>
+  <p><strong>Benefits:</strong></p>
+  <p>{{ job.benefits }}</p>
+
+
   <hr>
   <h4>Employer Info</h4>
 
   <div class="d-flex align-items-center mb-3">
-    <img [src]="'http://localhost:8085/images/employer/' + job.logo" 
-     alt="{{ job.companyName }} Logo" 
-     class="img-fluid me-3" 
-     style="max-height: 80px;"
-     (error)="onLogoError($event)">
+    <img [src]="'http://localhost:8085/images/employer/' + job.logo" alt="{{ job.companyName }} Logo"
+      class="img-fluid me-3" style="max-height: 80px;" (error)="onLogoError($event)">
     <div>
       <p><strong>Company:</strong> {{ job.companyName }}</p>
       <p><strong>Contact:</strong> {{ job.contactPerson }}</p>
@@ -35,5 +51,3 @@
     <p>Loading job details...</p>
   </div>
 </ng-template>
-
-

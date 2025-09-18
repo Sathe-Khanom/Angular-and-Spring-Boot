@@ -29,7 +29,7 @@
             <button class="btn btn-sm btn-outline-primary" [routerLink]="['/application/', job.id]">
             Applicants
             </button>
-            <button class="btn btn-sm btn-outline-danger">
+            <button class="btn btn-sm btn-outline-danger" (click)=" onDeleteJob(job.id)">
               Delete
             </button>
           </div>

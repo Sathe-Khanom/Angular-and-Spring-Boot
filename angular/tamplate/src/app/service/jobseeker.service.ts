@@ -67,7 +67,8 @@ export class JobseekerService {
       hobbies: [],
       extracurricular: [],
       references: [],
-      trainings: []
+      trainings: [],
+      summeries: []
     };
   }
 

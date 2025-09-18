@@ -40,6 +40,11 @@ export class AddJobComponent implements OnInit {
       salary: [null, [Validators.required, Validators.min(0)]],
       jobType: ['', Validators.required],
       postedDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      keyresponsibility: ['', Validators.required],
+      edurequirement: ['', Validators.required],
+      exprequirement: ['', Validators.required],
+      benefits: ['', Validators.required],
       location: [''],
       category: [],
     });

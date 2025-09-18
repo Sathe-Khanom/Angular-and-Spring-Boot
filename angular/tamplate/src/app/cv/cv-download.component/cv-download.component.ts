@@ -28,7 +28,7 @@ export class CvDownloadComponent implements AfterViewInit {
   @Input() languages: Language[] = [];
   @Input() hobbies: Hobby[] = [];
   @Input() references: Refference[] = [];
-  @Input() summery: Summery[] = [];
+  @Input() summeries: Summery[] = [];
 
   @ViewChild('cvContent') cvContent!: ElementRef;
 

@@ -94,7 +94,7 @@ export class JobSeekerProfileComponent implements OnInit {
     name: ''
   };
 
-  summery: Summery[] = [];
+  summeries: Summery[] = [];
   newSummery: Summery = {
     fatherName: '',
     motherName: '',
@@ -150,7 +150,7 @@ export class JobSeekerProfileComponent implements OnInit {
   loadSummery(): void {
     this.summeryService.getAllSummery().subscribe({
       next: (data) => {
-        this.summery = data;
+        this.summeries = data;
         this.cdr.markForCheck();
       },
       error: (err) => console.error('Failed to load summery', err)

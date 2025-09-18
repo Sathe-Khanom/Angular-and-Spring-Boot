@@ -6,6 +6,7 @@ import { Hobby } from './hobby.model';
 import { Language } from './language.model';
 import { Refference } from './refference.model';
 import { Skill } from './skill.model';
+import { Summery } from './summery.model';
 import { Training } from './training.model';
 
 export interface JobSeekerDTO {
@@ -25,4 +26,5 @@ export interface JobSeekerDTO {
   languages?: Language[];
   hobbies?: Hobby[];
   references?: Refference[];
+  summeries?: Summery[];
 }

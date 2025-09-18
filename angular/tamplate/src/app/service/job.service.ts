@@ -46,7 +46,7 @@ export class JobService {
   //  Delete a job
   deleteJob(id: number): Observable<void> {
     const headers = this.getAuthHeaders();
-    return this.http.delete<void>(`${this.baseUrl}/${id}`, { headers });
+    return this.http.delete<void>(`${this.baseUrl}${id}`, { headers });
   }
 
   // Optional: Update a job

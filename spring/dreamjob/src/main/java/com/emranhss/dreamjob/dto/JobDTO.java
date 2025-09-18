@@ -12,6 +12,11 @@ public class JobDTO {
     private Double salary;
     private String jobType;
     private Date postedDate;
+    private Date endDate;
+    private String keyresponsibility;
+    private String edurequirement;
+    private String exprequirement;
+    private String benefits;
 
     // Employer info
     private Long employerId;
@@ -37,6 +42,11 @@ public class JobDTO {
         this.salary = job.getSalary();
         this.jobType = job.getJobType();
         this.postedDate = job.getPostedDate();
+        this.endDate= job.getEndDate();
+        this.keyresponsibility= job.getKeyresponsibility();
+        this.edurequirement= job.getEdurequirement();
+        this.exprequirement= job.getExprequirement();
+        this.benefits = job.getBenefits();
 
         if (job.getEmployer() != null) {
             this.employerId = job.getEmployer().getId();
@@ -59,6 +69,45 @@ public class JobDTO {
         }
     }
 
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getKeyresponsibility() {
+        return keyresponsibility;
+    }
+
+    public void setKeyresponsibility(String keyresponsibility) {
+        this.keyresponsibility = keyresponsibility;
+    }
+
+    public String getEdurequirement() {
+        return edurequirement;
+    }
+
+    public void setEdurequirement(String edurequirement) {
+        this.edurequirement = edurequirement;
+    }
+
+    public String getExprequirement() {
+        return exprequirement;
+    }
+
+    public void setExprequirement(String exprequirement) {
+        this.exprequirement = exprequirement;
+    }
+
+    public String getBenefits() {
+        return benefits;
+    }
+
+    public void setBenefits(String benefits) {
+        this.benefits = benefits;
+    }
 
     public Long getId() {
         return id;

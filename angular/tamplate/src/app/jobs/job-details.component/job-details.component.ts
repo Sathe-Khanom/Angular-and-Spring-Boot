@@ -16,6 +16,8 @@ export class JobDetailsComponent implements OnInit {
 
   job: JobDTO | null = null;
 
+  keyResponsibilities: string[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private jobService: JobService,
@@ -28,6 +30,12 @@ export class JobDetailsComponent implements OnInit {
     this.jobService.getJobById(jobId).subscribe({
       next: data => {
         this.job = data;
+
+         // Split the keyresponsibility string into sentences for bullet points
+        this.keyResponsibilities = this.job.keyresponsibility
+          ? this.job.keyresponsibility.split(/(?<=\.)\s+(?=[A-Z])/).map(s => s.trim()).filter(s => s)
+          : [];
+
         console.log(data);
         this.cd.markForCheck();
 

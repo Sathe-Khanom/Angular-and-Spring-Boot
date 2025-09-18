@@ -29,7 +29,7 @@
 <app-cv-download
   [jobSeeker]="jobSeeker"
   [educations]="educations"
-  [summery]="summery"
+  [summeries]="summeries"
   [experiences]="experiences"
   [skills]="skills"
   [trainings]="trainings"
@@ -657,9 +657,9 @@
       data-bs-parent="#accordionExample">
       <div class="accordion-body">
 
-        <div *ngIf="summery.length > 0" class="card p-4 mt-4">
+        <div *ngIf="summeries.length > 0" class="card p-4 mt-4">
           <h5>Summery</h5>
-          <div *ngFor="let sum of summery" class="border-bottom py-2">
+          <div *ngFor="let sum of summeries" class="border-bottom py-2">
             <div><strong>Father's Name:</strong> {{ sum.fatherName }}</div>
             <div><strong>Mother's Name:</strong> {{ sum.motherName}}</div>
             <div><strong>Nationality:</strong> {{ sum.nationality }}</div>

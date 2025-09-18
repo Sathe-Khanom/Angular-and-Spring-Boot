@@ -1,6 +1,6 @@
 <div class="container mt-4">
-  <div class="p-4 rounded-4 shadow-lg" 
-       style="background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4); color: #333;">
+  <div class="p-4 rounded-4 shadow-lg"
+    style="background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4); color: #333;">
     <div class="bg-white rounded-4 p-4 shadow-sm">
       <h2 class="fw-bold text-center mb-4" style="color: #ff6f61;">🎨 Add New Job</h2>
 
@@ -14,12 +14,52 @@
         </div>
 
         <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
-          <textarea id="description" class="form-control border-primary-subtle" formControlName="description"></textarea>
+          <label for="description" class="form-label">Job Purpose</label>
+          <textarea id="description" class="form-control border-primary-subtle"
+            formControlName="description"></textarea>
           <div *ngIf="isSubmitted && jobForm.controls['description'].errors" class="text-danger">
             Description is required.
+          </div>          
+        </div>
+
+        <div class="mb-3">
+          <label for="keyresponsibility" class="form-label">Key Responsibilities</label>
+          <textarea id="keyresponsibility" class="form-control border-primary-subtle"
+            formControlName="keyresponsibility"></textarea>
+          <div *ngIf="isSubmitted && jobForm.controls['keyresponsibility'].errors" class="text-danger">
+            Keyresponsibility is required.
           </div>
         </div>
+
+      <div class="mb-3">
+          <label for="edurequirement" class="form-label">Education Requirements</label>
+          <textarea id="edurequirement" class="form-control border-primary-subtle"
+            formControlName="edurequirement"></textarea>
+          <div *ngIf="isSubmitted && jobForm.controls['edurequirement'].errors" class="text-danger">
+            Edurequirement is required.
+          </div>
+        </div>
+
+        
+                <div class="mb-3">
+          <label for="exprequirement" class="form-label">Experience Requirements</label>
+          <textarea id="exprequirement" class="form-control border-primary-subtle"
+            formControlName="exprequirement"></textarea>
+          <div *ngIf="isSubmitted && jobForm.controls['exprequirement'].errors" class="text-danger">
+            exprequirement is required.
+          </div>
+        </div>
+
+
+                <div class="mb-3">
+          <label for="benefits" class="form-label">Benefits</label>
+          <textarea id="benefits" class="form-control border-primary-subtle"
+            formControlName="benefits"></textarea>
+          <div *ngIf="isSubmitted && jobForm.controls['benefits'].errors" class="text-danger">
+            benefits is required.
+          </div>
+        </div>
+
 
         <div class="mb-3">
           <label for="location" class="form-label">Location</label>
@@ -63,6 +103,14 @@
           <input type="date" id="postedDate" class="form-control border-primary-subtle" formControlName="postedDate" />
           <div *ngIf="isSubmitted && jobForm.controls['postedDate'].errors" class="text-danger">
             postedDate is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="endDate" class="form-label">Deadline</label>
+          <input type="date" id="endDate" class="form-control border-primary-subtle" formControlName="endDate" />
+          <div *ngIf="isSubmitted && jobForm.controls['endDate'].errors" class="text-danger">
+            endDate is required.
           </div>
         </div>
 

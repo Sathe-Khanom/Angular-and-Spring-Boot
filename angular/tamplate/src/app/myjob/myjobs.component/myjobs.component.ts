@@ -38,5 +38,20 @@ export class MyjobsComponent {
     });
   }
 
+  onDeleteJob(id: number): void {
+  if (confirm('Are you sure you want to delete this job?')) {
+    this.jobService.deleteJob(id).subscribe({
+      next: () => {
+        this.jobs = this.jobs.filter(job => job.id !== id); // UI theke remove kora
+        alert('Job deleted successfully');
+      },
+      error: err => {
+        console.error('Delete failed', err);
+        alert('Failed to delete job');
+      }
+    });
+  }
+}
+
 
 }
