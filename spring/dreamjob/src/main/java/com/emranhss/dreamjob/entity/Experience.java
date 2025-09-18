@@ -16,6 +16,7 @@ public class Experience {
     private String position;
     private LocalDate fromDate;
     private LocalDate toDate;
+    @Column(length = 2000)
     private String description;
 
     @ManyToOne
