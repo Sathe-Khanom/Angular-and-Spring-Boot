@@ -10,17 +10,27 @@ import { DashboardService } from '../../service/dashboard.service';
 export class Dashboard implements OnInit {
 
 totalJobs: number = 0;
-  totalSeekers: number = 0;
-  totalEmployers: number = 0;
-  totalApplications: number = 0;
+totalSeekers: number = 0;
+totalEmployers: number = 0;
+totalApplications: number = 0;
+totalMessages: number = 0;
+totalCategories: number = 0;
+totalLocations: number = 0;
+totalUser: number = 0;
+ 
 
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
     this.dashboardService.getDashboardCounts().subscribe(data => {
-      this.totalJobs = data.jobs;
-      this.totalSeekers = data.seekers;
-      this.totalEmployers = data.employers;
+    this.totalJobs = data.jobs;
+    this.totalSeekers = data.seekers;
+    this.totalEmployers = data.employers;
+    this.totalApplications = data.applications;
+    this.totalMessages = data.messages;
+    this.totalCategories = data.categories;
+    this.totalLocations = data.locations;
+    this.totalUser = data.users;
      
     });
   }

@@ -1,0 +1,60 @@
+.card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Text color for readability */
+.card h5,
+.card p {
+  color: #fff !important;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* 🎨 Unique gradients per card — in row order */
+
+/* Row 1 */
+.row:nth-of-type(1) .col-md-4:nth-of-type(1) .card {
+  background-image: linear-gradient(135deg, #FF6B6B, #FFD93D);
+}
+.row:nth-of-type(1) .col-md-4:nth-of-type(2) .card {
+  background-image: linear-gradient(135deg, #6BCB77, #4D96FF);
+}
+.row:nth-of-type(1) .col-md-4:nth-of-type(3) .card {
+  background-image: linear-gradient(135deg, #FF6B6B, #845EC2);
+}
+
+/* Row 2 */
+.row:nth-of-type(2) .col-md-4:nth-of-type(1) .card {
+  background-image: linear-gradient(135deg, #F7B801, #EA5455);
+}
+.row:nth-of-type(2) .col-md-4:nth-of-type(2) .card {
+  background-image: linear-gradient(135deg, #9D4EDD, #FF6F91);
+}
+.row:nth-of-type(2) .col-md-4:nth-of-type(3) .card {
+  background-image: linear-gradient(135deg, #00C49A, #2EC4B6);
+}
+
+/* Row 3 */
+.row:nth-of-type(3) .col-md-4:nth-of-type(1) .card {
+  background-image: linear-gradient(135deg, #F15BB5, #FF6B6B);
+}
+.row:nth-of-type(3) .col-md-4:nth-of-type(2) .card {
+  background-image: linear-gradient(135deg, #845EC2, #FFC75F);
+}

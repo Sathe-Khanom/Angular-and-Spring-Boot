@@ -12,12 +12,31 @@ export class App {
 
   showSidebar = false; // Default to false
 
+  // constructor(private router: Router) {
+  //   this.router.events.subscribe(event => {
+  //     if (event instanceof NavigationEnd) {
+  //       // Check if the current URL is exactly '/dash'
+  //       this.showSidebar = event.url === '/dash','/allemp',
+  //       '/allseeker','/category','/location','/message','/alljobs';
+  //     }
+  //   });
+  // }
+
   constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        // Check if the current URL is exactly '/dash'
-        this.showSidebar = event.url === '/dash';
-      }
-    });
-  }
+  this.router.events.subscribe(event => {
+    if (event instanceof NavigationEnd) {
+      const sidebarRoutes = [
+        '/dash',
+        '/allemp',
+        '/allseeker',
+        '/category',
+        '/location',
+        '/message',
+        '/alljobs'
+      ];
+
+      this.showSidebar = sidebarRoutes.includes(event.url);
+    }
+  });
+}
 }

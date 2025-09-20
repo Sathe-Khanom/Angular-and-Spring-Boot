@@ -1,5 +1,12 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+  <!-- Profile / Logo Section -->
+<div class="sidebar-header text-center p-3">
+  <img [src]="'http://localhost:8085/images/employer/njghdxhfx_f813dd4d-20ca-435f-a74a-a67316c0b46a.png' " alt="Company Logo" height="150" width="150"
+                   class="img-thumbnail shadow-sm rounded-circle border border-3 border-primary mb-2" />
+  <h4 class="text-white mt-2">Dream Job Portal</h4>
+</div>
+
   <li class="nav-item" *ngFor="let item of menuItems">
     <a class="nav-link" [routerLink]="item.route">
       <i class="{{ item.icon }}"></i>
