@@ -49,6 +49,17 @@ public class   EducationRestController {
 
         return ResponseEntity.ok(educations);
     }
+
+    @PutMapping("update/{id}")
+    public ResponseEntity<Education> updateEducation(@PathVariable Long id,
+                                                     @RequestBody Education updatedEducation,
+                                                     Authentication authentication) {
+        String email = authentication.getName();
+        Education updated = educationService.updateEducation(id, updatedEducation, email);
+        return ResponseEntity.ok(updated);
+    }
+
+
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteEducation(@PathVariable Long id) {
         educationService.delete(id);

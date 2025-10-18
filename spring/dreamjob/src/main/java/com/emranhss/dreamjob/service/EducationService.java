@@ -38,6 +38,32 @@ public class EducationService {
         return educationRepository.save(education);
     }
 
+    public Education updateEducation(Long id, Education updatedEducation, String email) {
+        // Get the logged-in job seeker
+        JobSeeker jobSeeker = jobSeekerRepository.findByUserEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("JobSeeker not found"));
+
+        // Fetch existing education
+        Education existingEducation = educationRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Education record not found with id: " + id));
+
+        // Optional: Ensure the education belongs to the logged-in job seeker
+        if (!existingEducation.getJobSeeker().getId().equals(jobSeeker.getId())) {
+            throw new SecurityException("You are not authorized to update this education record.");
+        }
+
+        // Update fields
+        existingEducation.setLevel(updatedEducation.getLevel());
+        existingEducation.setInstitute(updatedEducation.getInstitute());
+        existingEducation.setBoard(updatedEducation.getBoard());
+        existingEducation.setResult(updatedEducation.getResult());
+        existingEducation.setYear(updatedEducation.getYear());
+
+        // Save updated education
+        return educationRepository.save(existingEducation);
+    }
+
+
 
     public void delete(Long id) {
         educationRepository.deleteById(id);

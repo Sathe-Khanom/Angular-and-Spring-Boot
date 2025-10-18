@@ -53,6 +53,17 @@ public class SummeryRestController {
 
         return ResponseEntity.ok(educations);
     }
+    @PutMapping("update/{id}")
+    public ResponseEntity<Summery> updateSummery(
+            @PathVariable Long id,
+            @RequestBody Summery updatedSummery,
+            Authentication authentication
+    ) {
+        String email = authentication.getName();
+        Summery updated = summeryService.updateSummery(id, updatedSummery, email);
+        return ResponseEntity.ok(updated);
+    }
+
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteExperience(@PathVariable Long id) {

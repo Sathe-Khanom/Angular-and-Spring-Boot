@@ -43,4 +43,32 @@ public class SummeryService {
     public void delete(Long id) {
         summeryRepository.deleteById(id);
     }
+
+    public Summery updateSummery(Long id, Summery updatedSummery, String email) {
+        JobSeeker jobSeeker = jobSeekerRepository.findByUserEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("JobSeeker not found"));
+
+        Summery existing = summeryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Summery not found with id: " + id));
+
+        if (!existing.getJobSeeker().getId().equals(jobSeeker.getId())) {
+            throw new RuntimeException("Unauthorized to update this summary.");
+        }
+
+        // Update fields
+        existing.setFatherName(updatedSummery.getFatherName());
+        existing.setMotherName(updatedSummery.getMotherName());
+        existing.setNationality(updatedSummery.getNationality());
+        existing.setReligion(updatedSummery.getReligion());
+        existing.setBloodGroup(updatedSummery.getBloodGroup());
+        existing.setHeight(updatedSummery.getHeight());
+        existing.setWeight(updatedSummery.getWeight());
+        existing.setNid(updatedSummery.getNid());
+        existing.setDescription(updatedSummery.getDescription());
+
+        return summeryRepository.save(existing);
+    }
+
+
+
 }
