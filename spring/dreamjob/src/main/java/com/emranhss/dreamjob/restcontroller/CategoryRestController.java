@@ -3,9 +3,11 @@ package com.emranhss.dreamjob.restcontroller;
 
 import com.emranhss.dreamjob.dto.CategoryDTO;
 import com.emranhss.dreamjob.entity.Category;
+import com.emranhss.dreamjob.entity.Training;
 import com.emranhss.dreamjob.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,12 +38,7 @@ public class CategoryRestController {
         return categoryService.createCategory(category);
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<Category> updateCategory(@PathVariable Long id, @RequestBody Category category) {
-        return categoryService.updateCategory(id, category)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
+
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {

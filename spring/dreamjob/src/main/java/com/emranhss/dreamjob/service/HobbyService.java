@@ -38,6 +38,31 @@ public class HobbyService {
 
         return hobbyRepository.save(hobby);   }
 
+
+    public Hobby updateHobby(Long id, Hobby updatedHobby, String email) {
+        // Get the logged-in job seeker
+        JobSeeker jobSeeker = jobSeekerRepository.findByUserEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("JobSeeker not found"));
+
+        // Fetch existing education
+        Hobby existingHobby = hobbyRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Hobby record not found with id: " + id));
+
+        // Optional: Ensure the education belongs to the logged-in job seeker
+        if (!existingHobby.getJobSeeker().getId().equals(jobSeeker.getId())) {
+            throw new SecurityException("You are not authorized to update this Hobby record.");
+        }
+
+        // Update fields
+        existingHobby.setName(updatedHobby.getName());
+
+
+
+
+        // Save updated education
+        return hobbyRepository.save(existingHobby);
+    }
+
     public void delete(Long id) {
         hobbyRepository.deleteById(id);
     }

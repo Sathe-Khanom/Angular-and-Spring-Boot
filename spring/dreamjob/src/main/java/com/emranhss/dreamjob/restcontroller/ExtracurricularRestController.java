@@ -53,6 +53,15 @@ public class ExtracurricularRestController {
         return ResponseEntity.ok(extracurriculars);
     }
 
+    @PutMapping("update/{id}")
+    public ResponseEntity<Extracurricular> updateExtracurricular(@PathVariable Long id,
+                                                       @RequestBody Extracurricular updatedExtracurricular,
+                                                       Authentication authentication) {
+        String email = authentication.getName();
+        Extracurricular updated = extracurricularService.updateExtracurricular(id, updatedExtracurricular, email);
+        return ResponseEntity.ok(updated);
+    }
+
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteExperience(@PathVariable Long id) {
         extracurricularService.delete(id);

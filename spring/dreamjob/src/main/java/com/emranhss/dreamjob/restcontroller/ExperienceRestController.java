@@ -3,10 +3,7 @@ package com.emranhss.dreamjob.restcontroller;
 
 import com.emranhss.dreamjob.dto.EducationDTO;
 import com.emranhss.dreamjob.dto.ExperienceDTO;
-import com.emranhss.dreamjob.entity.Education;
-import com.emranhss.dreamjob.entity.Experience;
-import com.emranhss.dreamjob.entity.JobSeeker;
-import com.emranhss.dreamjob.entity.User;
+import com.emranhss.dreamjob.entity.*;
 import com.emranhss.dreamjob.repository.ExperienceRepository;
 import com.emranhss.dreamjob.repository.IUserRepo;
 import com.emranhss.dreamjob.service.ExperienceService;
@@ -54,6 +51,15 @@ public class ExperienceRestController {
 
 
         return ResponseEntity.ok(educations);
+    }
+
+    @PutMapping("update/{id}")
+    public ResponseEntity<Experience> updateExperience(@PathVariable Long id,
+                                                   @RequestBody Experience updatedExperience,
+                                                   Authentication authentication) {
+        String email = authentication.getName();
+        Experience updated = experienceService.updateExperience(id, updatedExperience, email);
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("{id}")

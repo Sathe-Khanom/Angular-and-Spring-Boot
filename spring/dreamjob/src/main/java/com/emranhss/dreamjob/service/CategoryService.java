@@ -2,8 +2,11 @@ package com.emranhss.dreamjob.service;
 
 import com.emranhss.dreamjob.dto.CategoryDTO;
 import com.emranhss.dreamjob.entity.Category;
+import com.emranhss.dreamjob.entity.JobSeeker;
+import com.emranhss.dreamjob.entity.Training;
 import com.emranhss.dreamjob.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,12 +52,9 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public Optional<Category> updateCategory(Long id, Category updatedCategory) {
-        return categoryRepository.findById(id).map(category -> {
-            category.setName(updatedCategory.getName());
-            return categoryRepository.save(category);
-        });
-    }
+
+
+
 
     public void deleteCategory(Long id) {
         categoryRepository.deleteById(id);

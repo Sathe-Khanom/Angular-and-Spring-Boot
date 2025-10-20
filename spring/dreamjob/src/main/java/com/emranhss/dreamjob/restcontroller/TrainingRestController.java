@@ -2,10 +2,7 @@ package com.emranhss.dreamjob.restcontroller;
 
 import com.emranhss.dreamjob.dto.SkillDTO;
 import com.emranhss.dreamjob.dto.TrainingDTO;
-import com.emranhss.dreamjob.entity.JobSeeker;
-import com.emranhss.dreamjob.entity.Skill;
-import com.emranhss.dreamjob.entity.Training;
-import com.emranhss.dreamjob.entity.User;
+import com.emranhss.dreamjob.entity.*;
 import com.emranhss.dreamjob.repository.IUserRepo;
 import com.emranhss.dreamjob.service.JobSeekerService;
 import com.emranhss.dreamjob.service.SkillService;
@@ -49,6 +46,15 @@ public class TrainingRestController {
 
         return ResponseEntity.ok(trainings);
     }
+    @PutMapping("update/{id}")
+    public ResponseEntity<Training> updateTraining(@PathVariable Long id,
+                                                     @RequestBody Training updatedTraining,
+                                                     Authentication authentication) {
+        String email = authentication.getName();
+        Training updated = trainingService.updateTraining(id, updatedTraining, email);
+        return ResponseEntity.ok(updated);
+    }
+
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteTraining(@PathVariable Long id) {
         trainingService.delete(id);

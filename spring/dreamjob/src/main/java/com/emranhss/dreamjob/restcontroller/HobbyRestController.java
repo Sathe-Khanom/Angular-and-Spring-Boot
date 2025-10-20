@@ -2,10 +2,7 @@ package com.emranhss.dreamjob.restcontroller;
 
 import com.emranhss.dreamjob.dto.ExtracurricularDTO;
 import com.emranhss.dreamjob.dto.HobbyDTO;
-import com.emranhss.dreamjob.entity.Extracurricular;
-import com.emranhss.dreamjob.entity.Hobby;
-import com.emranhss.dreamjob.entity.JobSeeker;
-import com.emranhss.dreamjob.entity.User;
+import com.emranhss.dreamjob.entity.*;
 import com.emranhss.dreamjob.repository.IUserRepo;
 import com.emranhss.dreamjob.service.HobbyService;
 import com.emranhss.dreamjob.service.JobSeekerService;
@@ -47,6 +44,15 @@ public class HobbyRestController {
         List<HobbyDTO> hobbies = hobbyService.getByJobSeekerId(jobSeeker.getId());
 
         return ResponseEntity.ok(hobbies);}
+
+    @PutMapping("update/{id}")
+    public ResponseEntity<Hobby> updateHobby(@PathVariable Long id,
+                                                       @RequestBody Hobby updatedHobby,
+                                                       Authentication authentication) {
+        String email = authentication.getName();
+        Hobby updated = hobbyService.updateHobby(id, updatedHobby, email);
+        return ResponseEntity.ok(updated);
+    }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteHobby(@PathVariable Long id) {
