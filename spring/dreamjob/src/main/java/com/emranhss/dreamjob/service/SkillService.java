@@ -3,6 +3,7 @@ package com.emranhss.dreamjob.service;
 
 import com.emranhss.dreamjob.dto.RefferenceDTO;
 import com.emranhss.dreamjob.dto.SkillDTO;
+import com.emranhss.dreamjob.entity.Hobby;
 import com.emranhss.dreamjob.entity.JobSeeker;
 import com.emranhss.dreamjob.entity.Refference;
 import com.emranhss.dreamjob.entity.Skill;
@@ -39,6 +40,32 @@ public class SkillService {
 
         return skillRepository.save(skill);
     }
+
+
+    public Skill updateSkill(Long id, Skill updatedSkill, String email) {
+        // Get the logged-in job seeker
+        JobSeeker jobSeeker = jobSeekerRepository.findByUserEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("JobSeeker not found"));
+
+        // Fetch existing education
+        Skill existingSkill = skillRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Skill record not found with id: " + id));
+
+        // Optional: Ensure the education belongs to the logged-in job seeker
+        if (!existingSkill.getJobSeeker().getId().equals(jobSeeker.getId())) {
+            throw new SecurityException("You are not authorized to update this Skill record.");
+        }
+
+        // Update fields
+        existingSkill.setName(updatedSkill.getName());
+
+
+
+
+        // Save updated education
+        return skillRepository.save(existingSkill);
+    }
+
 
     public void delete(Long id) {
         skillRepository.deleteById(id);

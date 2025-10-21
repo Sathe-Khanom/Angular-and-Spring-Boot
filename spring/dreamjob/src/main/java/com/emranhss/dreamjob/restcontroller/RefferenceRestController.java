@@ -48,6 +48,17 @@ public class RefferenceRestController {
 
         return ResponseEntity.ok(references);
     }
+
+    @PutMapping("update/{id}")
+    public ResponseEntity<Refference> updateRefference(@PathVariable Long id,
+                                                   @RequestBody Refference updatedRefference,
+                                                   Authentication authentication) {
+        String email = authentication.getName();
+        Refference updated = referenceService.updateRefference(id, updatedRefference, email);
+        return ResponseEntity.ok(updated);
+    }
+
+
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteReference(@PathVariable Long id) {
         referenceService.delete(id);

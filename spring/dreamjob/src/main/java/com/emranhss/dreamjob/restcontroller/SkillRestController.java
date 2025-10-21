@@ -49,6 +49,15 @@ public class SkillRestController {
         return ResponseEntity.ok(skills);
     }
 
+    @PutMapping("update/{id}")
+    public ResponseEntity<Skill> updateSkill(@PathVariable Long id,
+                                                       @RequestBody Skill updatedSkill,
+                                                       Authentication authentication) {
+        String email = authentication.getName();
+        Skill updated = skillService.updateSkill(id, updatedSkill, email);
+        return ResponseEntity.ok(updated);
+    }
+
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteSkill(@PathVariable Long id) {
         skillService.delete(id);

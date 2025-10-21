@@ -48,6 +48,17 @@ public class LanguageRestController {
 
         return ResponseEntity.ok(languages);
     }
+
+    @PutMapping("update/{id}")
+    public ResponseEntity<Language> updateLanguage(@PathVariable Long id,
+                                             @RequestBody Language updatedLanguage,
+                                             Authentication authentication) {
+        String email = authentication.getName();
+        Language updated = languageService.updateLanguage(id, updatedLanguage, email);
+        return ResponseEntity.ok(updated);
+    }
+
+
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteLanguage(@PathVariable Long id) {
         languageService.delete(id);
