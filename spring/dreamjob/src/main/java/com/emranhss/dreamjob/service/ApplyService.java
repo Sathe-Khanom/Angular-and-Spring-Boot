@@ -117,7 +117,25 @@ public class ApplyService {
 
     public List<ApplyDTO> getApplicationsByJob(Long employerId, Long jobId) {
         List<Apply> applies = applyRepository.findAllByEmployerAndJob(employerId, jobId);
-        return applies.stream().map(this::mapToDTO).collect(Collectors.toList());
+        return applies.stream().map(this::mapToDTO1).collect(Collectors.toList());
+    }
+
+
+
+
+    public ApplyDTO mapToDTO1(Apply apply) {
+        return new ApplyDTO(
+                apply.getId(),
+                apply.getJob().getId(),
+                apply.getJob().getTitle(),
+                apply.getEmployer().getId(),
+                apply.getEmployer().getCompanyName(),
+                apply.getJobSeeker().getId(),
+                apply.getJobSeeker().getName(),
+                apply.getJobSeeker().getPhone(),
+                apply.getJobSeeker().getEmail()
+
+        );
     }
 
 
